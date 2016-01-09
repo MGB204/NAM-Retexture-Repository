@@ -1,0 +1,555 @@
+; Base installer for TGN v4. Edit: 01-Jan-16
+;--------------------------------
+
+SetCompressor /SOLID lzma ;High Compression Ratio. ;Final Compression
+
+!include "MUI2.nsh"			;Include Modern UI
+!include "nsDialogs.nsh"    ;Include NSD
+!include "LogicLib.nsh" ;Seems unnecessary check "Case"
+
+!define PRODUCT_NAME "TGN"
+!define PRODUCT_VERSION "2.0"
+!define PRODUCT_VERSION_INSTALLER "1.0.0.0"
+!define PRODUCT_FULL "Terrain Grass NAM (TGN) - PY"
+
+Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"  ; The name of the installer
+
+OutFile "MGB ${PRODUCT_NAME} ${PRODUCT_VERSION} Setup.exe" ; The file to write
+
+InstallDir "$DOCUMENTS\SimCity 4\Plugins\z____MGB Mods\G - TGN"; The default installation directory
+
+; Registry key to check for directory (so if you install again, it will 
+; overwrite the old one automatically)
+; InstallDirRegKey HKLM "Software\SC4_MGBMOD\TGN" "Install_Dir"
+
+RequestExecutionLevel user  ; Request application privileges for Windows Vista
+XPStyle on
+
+;Interface
+!define MUI_ABORTWARNING
+!define MUI_ICON "Image\TGN.ico"  ; Include Custom Icon
+!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_BITMAP Image\Header.bmp
+!define MUI_WELCOMEFINISHPAGE_BITMAP Image\Welcome.bmp
+!define MUI_WELCOMEPAGE_TEXT "This program will install ${PRODUCT_FULL} version ${PRODUCT_VERSION} for SimCity 4.$\r$\n$\nEnsure that Sim City 4 is not running before proceeding.$\r$\n$\nPlease click 'Next' to continue."
+!define MUI_DIRECTORYPAGE_TEXT_TOP "Setup will install ${PRODUCT_NAME} in the following folder. It is possilbe to customise the location of this mod.$\r$\n$\nIt is highly recommended that you use the default install path. This mod must load after the NAM, specifically the z___NAM folder to work correctly."
+
+; Pages
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "License.txt" ; Add Licence Agreement (Text File)
+!insertmacro MUI_PAGE_COMPONENTS
+Page custom RoadTextures RoadTextures.Leave
+Page custom DrivingSide DrivingSide.Leave 
+Page custom RailTextures RailTextures.Leave
+;Page custom GrassStlye GrassStlye.Leave
+;Page custom ShowVar
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+
+;!insertmacro MUI_UNPAGE_CONFIRM
+;!insertmacro MUI_UNPAGE_INSTFILES
+
+;FileInfo
+VIProductVersion ${PRODUCT_VERSION_INSTALLER}
+VIAddVersionKey /LANG=2057-English ProductName "${PRODUCT_FULL}"
+VIAddVersionKey /LANG=2057-English ProductVersion "${PRODUCT_VERSION}"
+VIAddVersionKey /LANG=2057-English FileDescription "${PRODUCT_NAME} Installer Application"
+VIAddVersionKey /LANG=2057-English FileVersion "${PRODUCT_VERSION_INSTALLER}"
+VIAddVersionKey /LANG=2057-English LegalCopyright "MGB SC4 Mods"
+
+;Languages
+  !insertmacro MUI_LANGUAGE "English"
+
+; Define Variables
+Var Dialog
+Var Image
+Var ImageHandle
+Var RoadTexturesType
+Var RoadTextures_US
+Var RoadTextures_EU
+Var DrivingSide_RHD
+Var DrivingSide_LHD
+Var RailTextureType
+;Var GrassType ; Var to store Grass Selection
+;Var GrassUnif ; Var on/off Unified
+Var Button1
+Var Button2
+Var Button3
+Var Button4
+Var Button5
+Var Button6
+Var Button7
+;Var Button8
+;Var Button9
+;Var Button10
+;Var Checkbox
+
+Function .onInit
+         StrCpy $RoadTextures_EU 0
+         StrCpy $RoadTextures_US 1		;Default Install Options
+         StrCpy $DrivingSide_LHD 0
+         StrCpy $DrivingSide_RHD 1		;			""
+         StrCpy $RailTextureType 2		;			""
+;		 StrCpy $GrassType 2			;			""		 
+	InitPluginsDir
+	File /oname=$PLUGINSDIR\Roadtype.bmp "Image\Roadtype.bmp"
+	File /oname=$PLUGINSDIR\DrivingSide.bmp "Image\Drivingside.bmp"
+	File /oname=$PLUGINSDIR\RailTexture.bmp "Image\RailTexture.bmp"
+	File /oname=$PLUGINSDIR\Grasstype.bmp "Image\Grasstype.bmp"
+FunctionEnd
+
+Function RoadTextures  ;Function to Select Road Textures
+	!insertmacro MUI_HEADER_TEXT "Select texture style for Roads" "Please select which of the following texture sets most closely resembles your game."
+	nsDialogs::Create /NOUNLOAD 1018
+	
+	${NSD_CreateBitmap} 250 0 100% 100% "" ;Width, Height, Size, Size)
+	Pop $Image
+	${NSD_SetImage} $Image $PLUGINSDIR\Roadtype.bmp $ImageHandle
+    Pop $Dialog
+	${NSD_CreateRadioButton} 00 35u 100% 8u " &US Cosmetic Re-texture Mod"
+	Pop $Button1
+	${NSD_CreateLabel} 12u 50u 95% 16u "Select US Cosmetic Re-texture Mod to install$\r$\nthe US texture version of ${PRODUCT_NAME}."
+	${If} $RoadTextures_US = 1
+			${NSD_Check} $Button1
+	${EndIf}
+	${NSD_CreateRadioButton} 00 75u 100% 8u " &EU Cosmetic Re-texture Mod"
+	Pop $Button2
+	${NSD_CreateLabel} 12u 90u 95% 16u "Select EU Cosmetic Re-texture Mod to install$\r$\nthe EU texture version of ${PRODUCT_NAME}."
+	${If} $RoadTextures_EU = 1
+			${NSD_Check} $Button2
+	${EndIf}
+	
+	GetFunctionAddress $0 RoadTextures.Leave
+	nsDialogs::OnBack /NOUNLOAD $0
+	nsDialogs::Show	
+
+FunctionEnd
+
+Function RoadTextures.Leave
+         ${NSD_GetState} $Button1 $RoadTextures_US
+         ${NSD_GetState} $Button2 $RoadTextures_EU
+         ${If} $RoadTextures_US = 0
+         ${AndIf} $RoadTextures_EU = 0
+               MessageBox MB_OK "Please select a texture variant before continuing."
+               Abort
+        ${Endif}
+FunctionEnd
+
+Function DrivingSide
+	!insertmacro MUI_HEADER_TEXT "Select RHD or LHD version." "Please select which side of the road your sims drive upon."
+	nsDialogs::Create /NOUNLOAD 1018
+	${NSD_CreateBitmap} 125 72 100% 100% ""
+	Pop $Image
+	${NSD_SetImage} $Image $PLUGINSDIR\Drivingside.bmp $ImageHandle
+    Pop $Dialog
+	${NSD_CreateRadioButton} 0 5u 100% 8u " &Right Hand Drive - Select RHD if your sims drive upon the right side of the roads in game."
+	Pop $Button3
+	${NSD_CreateLabel} 12u 20u 95% 24u "Usually this is the default setting for users in the US, Canada,$\r$\nContinental Europe and most of the world."
+	${If} $DrivingSide_RHD = 1
+			${NSD_Check} $Button3
+	${EndIf}
+	${NSD_CreateRadioButton} 0 68u 100% 8u " &Left Hand Drive - Select LHD if your sims drive upon the left side of the roads in game."
+	Pop $Button4
+	${NSD_CreateLabel} 12u 83u 95% 24u "This setting is suitable for the UK, Japan, Australlia and other countries$\r$\nwhere drivers use the left side of the road."
+	${If} $DrivingSide_LHD = 1
+			${NSD_Check} $Button4
+	${EndIf}
+	Pop $Dialog
+	${NSD_CreateLabel} 0u 110u 95% 36u "Note: This setting should match the setup of your game.$\r$\nChanging this setting such that it does not match your game, will cause the mod to display incorectly."
+	GetFunctionAddress $0 DrivingSide.Leave
+	nsDialogs::OnBack /NOUNLOAD $0
+	nsDialogs::Show	
+	${NSD_FreeImage} $ImageHandle
+FunctionEnd
+
+Function DrivingSide.Leave
+         ${NSD_GetState} $Button3 $DrivingSide_RHD
+         ${NSD_GetState} $Button4 $DrivingSide_LHD
+         ${If} $DrivingSide_RHD = 0
+         ${AndIf} $DrivingSide_LHD = 0
+               MessageBox MB_OK "Please select a driving side before continuing."
+               Abort
+        ${Endif}
+;	Set RoadTextureType to install Rail Textures 
+	${If} $RoadTextures_US = 1
+	${AndIf} $DrivingSide_RHD = 1
+		StrCpy $RoadTexturesType 0
+	${EndIf}
+	${If} $RoadTextures_US = 1
+	${AndIf} $DrivingSide_LHD = 1
+		StrCpy $RoadTexturesType 1
+	${EndIf}		
+	${If} $RoadTextures_EU = 1
+	${AndIf} $DrivingSide_RHD = 1
+		StrCpy $RoadTexturesType 2
+	${EndIf}
+	${If} $RoadTextures_EU = 1
+	${AndIf} $DrivingSide_LHD = 1	
+		StrCpy $RoadTexturesType 3
+	${EndIf}
+FunctionEnd
+
+Function RailTextures
+        !insertmacro MUI_HEADER_TEXT "Railway Textures" "Choose which ${PRODUCT_NAME} rail textures you wish to use."
+        nsDialogs::Create /NOUNLOAD 1018
+		${NSD_CreateBitmap} 250 30 100% 100% ""
+		Pop $Image
+		${NSD_SetImage} $Image $PLUGINSDIR\Railtexture.bmp $ImageHandle
+		Pop $Dialog
+        ${NSD_CreateLabel} 0 0 100% 24u "This mod supports the three Rail Texture variants shown here.$\r$\n$\nPlease select one of these three options:"
+        ${NSD_CreateRadioButton} 100 50u 100% 8u " &Maxis Rail Textures"
+        Pop $Button5
+        ${NSD_CreateRadioButton} 100 74u 100% 8u " &PEG 205 Rail Mod"
+        Pop $Button6
+        ${NSD_CreateRadioButton} 100 98u 100% 8u " R&RW (RealRailway NAM)"
+        Pop $Button7
+        ${Select} $RailTextureType
+        ${Case} 0
+                ${NSD_Check} $Button5
+        ${Case} 1
+                ${NSD_Check} $Button6
+        ${Case} 2
+                ${NSD_Check} $Button7
+        ${EndSelect}
+        GetFunctionAddress $0 RailTextures.Leave
+        nsDialogs::OnBack /NOUNLOAD $0
+        nsDialogs::Show
+		${NSD_FreeImage} $ImageHandle
+FunctionEnd
+
+Function RailTextures.Leave
+        ${NSD_GetState} $Button5 $0
+        ${If} $0 = 1
+               StrCpy $RailTextureType 0
+               return
+        ${Endif}
+        ${NSD_GetState} $Button6 $0
+        ${If} $0 = 1
+               StrCpy $RailTextureType 1
+               return
+        ${Endif}
+		${NSD_GetState} $Button7 $0
+        ${If} $0 = 1
+               StrCpy $RailTextureType 2
+               return
+        ${Endif}
+FunctionEnd
+
+;Function GrassStlye
+; !insertmacro MUI_HEADER_TEXT "TGN Style" "Choose which ${PRODUCT_NAME} texture style to install."
+;        nsDialogs::Create /NOUNLOAD 1018
+;		${NSD_CreateBitmap} 0 30 100% 100% ""
+;		Pop $Image
+;		${NSD_SetImage} $Image $PLUGINSDIR\Grasstype.bmp $ImageHandle
+;		Pop $Dialog
+;        ${NSD_CreateLabel} 0 0 100% 8u "This mod supports three terrain types. Please select which to install:"
+;        ${NSD_CreateRadioButton} 180 48u 100% 8u " Lowkee's Appalachain Mod"
+;        Pop $Button8
+;        ${NSD_CreateRadioButton} 180 72u 100% 8u " Gobias' Berner Oberland Mod"
+;        Pop $Button9
+;        ${NSD_CreateRadioButton} 180 96u 100% 8u " Gobias' Sudden Valley Mod"
+;        Pop $Button10
+;		${NSD_CreateCheckBox} 180 106u 100% 36u " Unified Wealth (option)$\r$\n Select to also use $$$$ wealth grass for $$ and$\r$\n $$$$$$ textures, for a more unified appearance."
+;		Pop $Checkbox
+;        ${Select} $GrassType
+;        ${Case} 0
+;                ${NSD_Check} $Button8
+;        ${Case} 1
+;                ${NSD_Check} $Button9
+;        ${Case} 2
+;                ${NSD_Check} $Button10
+;        ${EndSelect}
+;		${NSD_GetState} $Checkbox $GrassUnif	
+;		${NSD_OnClick} $Button8 GrassChange		;Error Capture no AP Multi-Wealth
+;		${NSD_OnClick} $CheckBox GrassChange	;             " "
+;        GetFunctionAddress $0 GrassStlye.Leave
+;        nsDialogs::OnBack /NOUNLOAD $0
+;        nsDialogs::Show
+;		${NSD_FreeImage} $ImageHandle
+;FunctionEnd
+
+;Function GrassChange  ; Error Checking/Correction Function
+; Neccessary to re-collect state information to work?
+;        ${NSD_GetState} $Button8 $0
+;        ${If} $0 = 1
+;               StrCpy $GrassType 0
+;        ${Endif}
+;        ${NSD_GetState} $Button9 $0
+;        ${If} $0 = 1
+;               StrCpy $GrassType 1
+;		${Endif}
+;		${NSD_GetState} $Button10 $0
+;		${If} $0 = 1
+;			   StrCpy $GrassType 2
+;		${EndIf}
+;		${NSD_GetState} $Checkbox $GrassUnif
+;			MessageBox MB_OK "Function GrassChange Ran$\r$\nGrass Type: {$GrassType}$\r$\nUnified: {$GrassUnif}"
+;	${If} $GrassType = 0
+;	${AndIf} $GrassUnif = 0
+;			MessageBox MB_OK "This variant does not support Multi-Wealth!$\r$\n$\nUnified wealth has therefore been selected automatically."
+;			${NSD_Check} $Checkbox
+;			StrCpy $GrassUnif 1
+;	${EndIf}
+;FunctionEnd
+
+;Function GrassStlye.Leave
+;        ${NSD_GetState} $Button8 $0
+;        ${If} $0 = 1
+;               StrCpy $GrassType 0
+;        ${Endif}
+;        ${NSD_GetState} $Button9 $0
+;        ${If} $0 = 1
+;               StrCpy $GrassType 1
+;		${Endif}
+;		${NSD_GetState} $Button10 $0
+;		${If} $0 = 1
+;			   StrCpy $GrassType 2
+;		${EndIf}
+;		${NSD_GetState} $Checkbox $GrassUnif
+;			MessageBox MB_OK "Function GrassChange Ran$\r$\nGrass Type: {$GrassType}$\r$\nUnified: {$GrassUnif}"
+;	${If} $GrassType = 0
+;	${AndIf} $GrassUnif = 0
+;			MessageBox MB_OK "This variant does not support Multi-Wealth!$\r$\n$\nUnified wealth has therefore been selected automatically."
+;			${NSD_Check} $Checkbox
+;			StrCpy $GrassUnif 1
+;	${EndIf}
+;FunctionEnd
+
+; Teesting function for displaying output variables
+
+;Function ShowVar
+;
+;	MessageBox MB_OK "RoadTextures_EU: {$RoadTextures_EU}$\r$\n$\nRoadTextures_US: ($RoadTextures_US)$\r$\n$\nDriving Side RHD: ($DrivingSide_RHD)$\r$\n$\nDriving Side LHD: ($DrivingSide_LHD)$\r$\n$\nRail Texture Type: ($RailTextureType)$\r$\n$\nGrass Type: ($GrassType)$\r$\n$\nGrass Unified ($GrassUnif)"
+	
+;FunctionEnd
+	
+
+Section "TGN Base Mod for NAM (required)" sec1
+
+  SectionIn RO ;Read Only (Not Optional)
+  SetOutPath $INSTDIR ; Set output path to the installation directory.
+  
+;	Install Generic Files
+  
+;  ${If} $GrassType = 0
+;  FEATURE NOT ACTIVE
+;  ${Endif}
+
+;  *****************************************************************************************************************************************************************
+  File "..\Generic\MGB TGN Base Textures.dat" ;                        !!! Ensure option disabled for BO and SV variants !!!         *******************************
+;  *****************************************************************************************************************************************************************
+  
+  File "..\Generic\MGB TGN Diag Filler Override.dat"
+  File "..\Generic\MGB TGN Parks 205 Override.dat"
+  File "..\Generic\MGB TGN BSC Vol1-3 Override.dat"
+  
+  SetOutPath "$INSTDIR\1 - Maxis & Basic NAM"
+  
+  File "..\Generic\MGB TGN Ave.dat"
+  File "..\Generic\MGB TGN OWR.dat"
+  
+	${If} $RoadTextures_US = 1
+		File "..\US\MGB TGN Ave US.dat"
+		File "..\US\MGB TGN OWR US.dat"
+		File "..\US\MGB TGN Road US.dat"
+	${Else}
+		File "..\EU\MGB TGN Ave EU.dat"
+		File "..\EU\MGB TGN OWR EU.dat" 
+		File "..\EU\MGB TGN Road EU.dat"
+	${Endif}
+  
+	${If} $DrivingSide_RHD = 1
+		File "..\RHD\MGB TGN Ave RTL RHD.dat"
+	${Else}
+		File "..\LHD\MGB TGN Ave RTL LHD.dat"
+	${Endif}
+ 
+ ;Rail Section
+ 
+    SetOutPath "$INSTDIR\5 - Rail Textures"
+ 
+	${If} $RailTextureType = 0
+	${AndIf} $RoadTexturesType = 0
+		File "..\Generic\MGB TGN Maxis Rail Crossings.dat"			
+		File "..\US\MGB TGN Maxis Rail Crossings US.dat"
+		File "..\US\RHD\MGB TGN Maxis Rail Crossings US RHD.dat"
+	${ElseIf} $RailTextureType = 0
+	${AndIf} $RoadTexturesType = 1
+		File "..\Generic\MGB TGN Maxis Rail Crossings.dat"						
+		File "..\US\MGB TGN Maxis Rail Crossings US.dat"
+		File "..\US\LHD\MGB TGN Maxis Rail Crossings US LHD.dat"
+	${ElseIf} $RailTextureType = 0
+	${AndIf} $RoadTexturesType = 2
+		File "..\Generic\MGB TGN Maxis Rail Crossings.dat"						
+		File "..\EU\MGB TGN Maxis Rail Crossings EU.dat"
+		File "..\EU\RHD\MGB TGN Maxis Rail Crossings EU RHD.dat"
+	${ElseIf} $RailTextureType = 0
+	${AndIf} $RoadTexturesType = 3
+		File "..\Generic\MGB TGN Maxis Rail Crossings.dat"			
+		File "..\EU\MGB TGN Maxis Rail Crossings EU.dat"
+		File "..\EU\LHD\MGB TGN Maxis Rail Crossings EU LHD.dat"
+	${EndIf}
+	
+	${If} $RailTextureType = 1
+	${AndIf} $RoadTexturesType = 0 
+		File "..\Generic\MGB TGN PEG Rail Crossings.dat"
+		File "..\US\MGB TGN PEG Rail Crossings US.dat"
+		File "..\US\RHD\MGB TGN PEG Rail Crossings US RHD.dat"
+	${ElseIf} $RailTextureType = 1
+	${AndIf} $RoadTexturesType = 1 
+		File "..\Generic\MGB TGN PEG Rail Crossings.dat"
+		File "..\US\MGB TGN PEG Rail Crossings US.dat"
+		File "..\US\LHD\MGB TGN PEG Rail Crossings US LHD.dat"
+	${ElseIf} $RailTextureType = 1				
+	${AndIf} $RoadTexturesType = 2
+		File "..\Generic\MGB TGN PEG Rail Crossings.dat"
+		File "..\EU\MGB TGN PEG Rail Crossings EU.dat"
+		File "..\EU\RHD\MGB TGN PEG Rail Crossings EU RHD.dat"
+	${ElseIf} $RailTextureType = 1
+	${AndIf} $RoadTexturesType = 3
+		File "..\Generic\MGB TGN PEG Rail Crossings.dat"
+		File "..\EU\MGB TGN PEG Rail Crossings EU.dat"
+		File "..\EU\LHD\MGB TGN PEG Rail Crossings EU LHD.dat"
+	${EndIf}
+	
+	${If} $RailTextureType = 2
+	${AndIf} $RoadTexturesType = 0 
+		File "..\Generic\MGB TGN RRW Crossings.dat"
+		File "..\US\MGB TGN RRW Crossings US.dat"
+		File "..\US\RHD\MGB TGN RRW Crossings US RHD.dat"
+	${ElseIf} $RailTextureType = 2
+	${AndIf} $RoadTexturesType = 1 
+		File "..\Generic\MGB TGN RRW Crossings.dat"			
+		File "..\US\MGB TGN RRW Crossings US.dat"
+		File "..\US\LHD\MGB TGN RRW Crossings US LHD.dat"
+	${ElseIf} $RailTextureType = 2
+	${AndIf} $RoadTexturesType = 2 
+		File "..\Generic\MGB TGN RRW Crossings.dat"
+		File "..\EU\MGB TGN RRW Crossings EU.dat"
+		File "..\EU\RHD\MGB TGN RRW Crossings EU RHD.dat"
+	${ElseIf} $RailTextureType = 2
+	${AndIf} $RoadTexturesType = 3
+		File "..\Generic\MGB TGN RRW Crossings.dat"
+		File "..\EU\MGB TGN RRW Crossings EU.dat"
+		File "..\EU\LHD\MGB TGN RRW Crossings EU LHD.dat"
+	${EndIf}
+ 
+ ; Write the installation path into the registry
+ ; WriteRegStr HKLM SOFTWARE\SC4_MGBMOD\TGN "Install_Dir" "$INSTDIR"
+  ; Read if Variable exists in SC4_MGBMOD "InstCount"
+ ;      "InstCount" +1 Overwrite current entry.
+ ; Where not existing
+ ;      "InstCount" = 1 
+ ; Write the uninstall keys for Windows
+ ; WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SC4_MGBMOD\TGN" "DisplayName" "NSIS Example2"
+ ; WriteRegStr HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SC4_MGBMOD\TGN" "UninstallString" '"$INSTDIR\TGN Uninstall.exe"'
+ ; WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SC4_MGBMOD\TGN" "NoModify" 1
+ ; WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SC4_MGBMOD\TGN" "NoRepair" 1
+ ; WriteUninstaller "TGN Uninstall.exe"
+SectionEnd
+
+Section "TGN Maxis Street Textures" sec2
+  
+ SetOutPath "$INSTDIR\3 - Maxis Street"  
+  
+  File "..\Generic\MGB TGN Maxis Street.dat"
+ 
+;Rail
+ 
+	${If} $RailTextureType = 0
+		File "..\Generic\MGB TGN Maxis Street Maxis Rail Crossings.dat"
+	${ElseIf} $RailTextureType = 1
+		File "..\Generic\MGB TGN Maxis Street PEG Rail Crossings.dat"
+	${Else}
+		File "..\Generic\MGB TGN Maxis Street RRW Crossings.dat"
+	${Endif}
+
+	${If} $RoadTextures_US = 1  
+		File "..\US\MGB TGN Maxis Street US.dat"
+		File "..\US\MGB TGN Maxis Street Roundabouts US.dat"
+	${Else}
+		File "..\EU\MGB TGN Maxis Street EU.dat"
+		File "..\EU\MGB TGN Maxis Street Roundabouts EU.dat"
+	${Endif}
+SectionEnd
+
+Section "TGN SAM Textures" sec3
+
+ SetOutPath "$INSTDIR\2 - SAM"
+ 
+	File "..\Generic\MGB TGN SAM 1.dat"
+	File "..\Generic\MGB TGN SAM 2.dat"
+	File "..\Generic\MGB TGN SAM 3.dat"
+	File "..\Generic\MGB TGN SAM 4.dat"
+	File "..\Generic\MGB TGN SAM 5.dat"
+	File "..\Generic\MGB TGN SAM 7.dat"
+	File "..\Generic\MGB TGN SAM 8.dat"
+	File "..\Generic\MGB TGN SAM 9.dat"
+	${If} $RoadTextures_US = 1  
+		File "..\US\MGB TGN SAM 2 US.dat"
+		File "..\US\MGB TGN SAM 3 US.dat"
+		File "..\US\MGB TGN SAM 4 US.dat"
+		File "..\US\MGB TGN SAM 5 US.dat"
+		File "..\US\MGB TGN SAM 7 US.dat"
+		File "..\US\MGB TGN SAM 8 US.dat"
+		File "..\US\MGB TGN SAM 9 US.dat"
+	${Else}
+		File "..\EU\MGB TGN SAM 2 EU.dat"
+		File "..\EU\MGB TGN SAM 3 EU.dat"
+		File "..\EU\MGB TGN SAM 4 EU.dat"
+		File "..\EU\MGB TGN SAM 5 EU.dat"
+		File "..\EU\MGB TGN SAM 7 EU.dat"
+		File "..\EU\MGB TGN SAM 8 EU.dat"
+		File "..\EU\MGB TGN SAM 9 EU.dat"
+	${EndIf}
+	${If} $RailTextureType = 0
+		File "..\Generic\MGB TGN Maxis Rail Crossings for SAM.dat"
+	${ElseIf} $RailTextureType = 1
+		File "..\Generic\MGB TGN PEG Rail Crossings for SAM.dat"
+	${Else} 
+		File "..\Generic\MGB TGN RRW Crossings for SAM.dat"
+    ${EndIf}
+SectionEnd
+
+Section "Documentation" sec4
+; Install Documentation Files
+	SetOutPath "$DOCUMENTS\SimCity 4\LEX_Downloads\MGB Mods\"
+	File /r "Doc\*"
+SectionEnd
+
+  ;Assign language strings to sections
+  !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${sec1} "Installs TGN textures for NAM networks and NWM."
+  !insertmacro MUI_DESCRIPTION_TEXT ${sec2} "Untick ONLY if you don't use Maxis Streets."
+  !insertmacro MUI_DESCRIPTION_TEXT ${sec3} "Optionally installs TGN for SAM (Street addon mod) networks."
+  !insertmacro MUI_DESCRIPTION_TEXT ${sec4} "Installs Readme Files (Reccomended)."
+  !insertmacro MUI_FUNCTION_DESCRIPTION_END
+  
+;--------------------------------Uninstaller
+
+;Section "Uninstall"
+  
+  ; Remove registry keys
+;  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\SC4_MGBMOD\TGN"
+;  DeleteRegKey HKLM SOFTWARE\SC4_MGBMOD\TGN
+
+  ; Remove files and uninstaller
+;  Delete $INSTDIR\example2.nsi
+;  Delete $INSTDIR\uninstall.exe
+
+  ; Remove shortcuts, if any
+ ; Delete "$SMPROGRAMS\Example2\*.*"
+
+  ; Remove directories used
+;  RMDir "$SMPROGRAMS\Example2"
+;  RMDir "$INSTDIR\z____MGB Mods"
+
+; Read "InstCount"
+; If "InstCount" >0 
+;    "InstCount" - 1 Overwrite current entry.
+; If "InstCount" = 0
+; 	 Offer to remove:
+;       Final Folder
+;		Documentation
+; 		Clear MGB_SC4MOD Reg Entry
+;SectionEnd
