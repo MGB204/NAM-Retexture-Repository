@@ -1,0 +1,764 @@
+_GOFSHBUILDFILE
+
+'================  CORE TILES =============
+
+'Generic Textures
+
+SRCDIR=*\Misc\
+DESTDIR=*\_Temp\Misc
+GENERATE=EDIT
+
+SRCDIR=*\Misc\$\
+DESTDIR=*\_Temp\Misc
+GENERATE=EDIT11
+
+SRCDIR=*\Misc\$$$\
+DESTDIR=*\_Temp\Misc
+GENERATE=EDIT33
+
+SRCDIR=*\Misc\Diag
+DESTDIR=*\_Temp\Misc\Diag
+GENERATE=EDIT
+FSHFORMAT=DXT3
+
+SRCDIR=*\Misc\Diag\$
+DESTDIR=*\_Temp\Misc\Diag
+GENERATE=EDIT11
+FSHFORMAT=DXT3
+
+SRCDIR=*\Misc\Diag\$$$
+DESTDIR=*\_Temp\Misc\Diag
+GENERATE=EDIT33
+FSHFORMAT=DXT3
+
+SRCDIR=*\Misc\Parks205
+DESTDIR=*\_Temp\Misc\Parks205
+GENERATE=EDIT
+FSHFORMAT=DXT3
+
+SRCDIR=*\Misc\BSC
+DESTDIR=*\_Temp\Misc\BSC
+GENERATE=EDIT
+FSHFORMAT=DXT3
+
+SRCDIR=*\Misc\BSC\$
+DESTDIR=*\_Temp\Misc\BSC
+GENERATE=EDIT11
+FSHFORMAT=DXT3
+
+SRCDIR=*\Misc\BSC\$$$
+DESTDIR=*\_Temp\Misc\BSC
+GENERATE=EDIT33
+FSHFORMAT=DXT3
+
+'Individual Texture Sets
+
+'==== AVENUE ====
+
+SRCDIR=*\Ave
+DESTDIR=*\_Temp\Ave
+GENERATE=W13
+
+SRCDIR=*\Ave\WRC
+DESTDIR=*\_Temp\Ave
+GENERATE=W13
+
+SRCDIR=*\Ave\EU
+DESTDIR=*\_Temp\Ave\EU
+GENERATE=W13
+
+SRCDIR=*\Ave\US
+DESTDIR=*\_Temp\Ave\US
+GENERATE=W13
+
+SRCDIR=*\Ave\RTL LHD
+DESTDIR=*\_Temp\Ave\RTL LHD
+GENERATE=W13
+
+SRCDIR=*\Ave\RTL RHD
+DESTDIR=*\_Temp\Ave\RTL RHD
+GENERATE=W13
+
+'==== ROAD inc FAN, WRCs and NWM ====
+
+SRCDIR=*\Road_EU
+DESTDIR=*\_Temp\Road_EU
+GENERATE=W13
+
+SRCDIR=*\Road_EU\FAN + WRC
+DESTDIR=*\_Temp\Road_EU
+GENERATE=W13
+
+SRCDIR=*\Road_EU\NWM
+DESTDIR=*\_Temp\Road_EU
+GENERATE=W13
+
+SRCDIR=*\Road_EU\NWM\EDIT
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+
+SRCDIR=*\Road_EU\NWM\EDIT\PUZZLE
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_EU\NWM\EDIT\0 Wealth
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+
+
+'=================================
+'           EU Roundabout
+'=================================
+
+SRCDIR=*\Road_EU\Roundabout\Edit
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+
+SRCDIR=*\Road_EU\Roundabout\Edit\Puzzle
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_EU\Roundabout\Edit\Puzzle No Mips
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+MIPMAPS=NONE
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_EU\Roundabout\Street
+DESTDIR=*\_Temp\Road_EU\Street
+GENERATE=EDIT
+
+SRCDIR=*\Road_EU\Roundabout\Street\W13
+DESTDIR=*\_Temp\Road_EU\Street
+GENERATE=W13
+
+SRCDIR=*\Road_EU\Roundabout\Street\W13\Last
+DESTDIR=*\_Temp\Road_EU\Street
+GENERATE=EDIT
+
+SRCDIR=*\Road_EU\Roundabout\Street\Puzzle
+DESTDIR=*\_Temp\Road_EU\Street
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_EU\Roundabout\w13
+DESTDIR=*\_Temp\Road_EU
+GENERATE=W13
+
+SRCDIR=*\Road_EU\Roundabout\zLAST
+DESTDIR=*\_Temp\Road_EU
+GENERATE=EDIT
+
+' == US Textures ==
+
+SRCDIR=*\Road_US
+DESTDIR=*\_Temp\Road_US
+GENERATE=W13
+
+SRCDIR=*\Road_US\FAN + WRC
+DESTDIR=*\_Temp\Road_US
+GENERATE=W13
+
+SRCDIR=*\Road_US\NWM
+DESTDIR=*\_Temp\Road_US
+GENERATE=W13
+
+SRCDIR=*\Road_US\NWM\EDIT
+DESTDIR=*\_Temp\Road_US
+GENERATE=EDIT
+
+SRCDIR=*\Road_US\NWM\EDIT\PUZZLE
+DESTDIR=*\_Temp\Road_US
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+'=================================
+'           US Roundabout
+'=================================
+
+SRCDIR=*\Road_US\Roundabout\Edit
+DESTDIR=*\_Temp\Road_US
+GENERATE=EDIT
+
+SRCDIR=*\Road_US\Roundabout\Edit\Puzzle
+DESTDIR=*\_Temp\Road_US
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_US\Roundabout\Edit\Puzzle No Mips
+DESTDIR=*\_Temp\Road_US
+GENERATE=EDIT
+MIPMAPS=NONE
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_US\Roundabout\Street
+DESTDIR=*\_Temp\Road_US\Street
+GENERATE=EDIT
+
+SRCDIR=*\Road_US\Roundabout\Street\Puzzle
+DESTDIR=*\_Temp\Road_US\Street
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Road_US\Roundabout\w13
+DESTDIR=*\_Temp\Road_US
+GENERATE=W13
+
+SRCDIR=*\Road_US\Roundabout\zLAST
+DESTDIR=*\_Temp\Road_US
+GENERATE=EDIT
+
+' =======
+' = END =
+' =======
+
+'==== OWR ====
+
+SRCDIR=*\OWR
+DESTDIR=*\_Temp\OWR
+GENERATE=W13
+
+SRCDIR=*\OWR\WRC
+DESTDIR=*\_Temp\OWR
+GENERATE=W13
+
+SRCDIR=*\OWR\EU
+DESTDIR=*\_Temp\OWR\EU
+GENERATE=W13
+
+SRCDIR=*\OWR\US
+DESTDIR=*\_Temp\OWR\US
+GENERATE=W13
+
+
+' Generate Steet Options
+
+SRCDIR=*\Street - Maxis
+DESTDIR=*\_Temp\Street - Maxis
+GENERATE=W13
+
+SRCDIR=*\Street - Maxis\EU
+DESTDIR=*\_Temp\Street - Maxis\EU
+GENERATE=W13
+
+SRCDIR=*\Street - Maxis\US
+DESTDIR=*\_Temp\Street - Maxis\US
+GENERATE=W13
+
+
+' Generate SAM Sets
+
+SRCDIR=*\SAM\SAM 1
+DESTDIR=*\_Temp\SAM\SAM 1
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 1\0 Wealth
+DESTDIR=*\_Temp\SAM\SAM 1
+GENERATE=EDIT
+
+SRCDIR=*\SAM\SAM 2
+DESTDIR=*\_Temp\SAM\SAM 2
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 2\EU
+DESTDIR=*\_Temp\SAM\SAM 2\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 2\US
+DESTDIR=*\_Temp\SAM\SAM 2\US
+GENERATE=w13
+
+
+SRCDIR=*\SAM\SAM 3
+DESTDIR=*\_Temp\SAM\SAM 3
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 3\EU
+DESTDIR=*\_Temp\SAM\SAM 3\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 3\US
+DESTDIR=*\_Temp\SAM\SAM 3\US
+GENERATE=w13
+
+
+SRCDIR=*\SAM\SAM 4
+DESTDIR=*\_Temp\SAM\SAM 4
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 4\EU
+DESTDIR=*\_Temp\SAM\SAM 4\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 4\US
+DESTDIR=*\_Temp\SAM\SAM 4\US
+GENERATE=w13
+
+
+SRCDIR=*\SAM\SAM 5
+DESTDIR=*\_Temp\SAM\SAM 5
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 5\EU
+DESTDIR=*\_Temp\SAM\SAM 5\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 5\US
+DESTDIR=*\_Temp\SAM\SAM 5\US
+GENERATE=w13
+
+
+SRCDIR=*\SAM\SAM 7
+DESTDIR=*\_Temp\SAM\SAM 7
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 7\EU
+DESTDIR=*\_Temp\SAM\SAM 7\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 7\US
+DESTDIR=*\_Temp\SAM\SAM 7\US
+GENERATE=w13
+
+
+SRCDIR=*\SAM\SAM 8
+DESTDIR=*\_Temp\SAM\SAM 8
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 8\EU
+DESTDIR=*\_Temp\SAM\SAM 8\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 8\US
+DESTDIR=*\_Temp\SAM\SAM 8\US
+GENERATE=w13
+
+
+SRCDIR=*\SAM\SAM 9
+DESTDIR=*\_Temp\SAM\SAM 9
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 9\EU
+DESTDIR=*\_Temp\SAM\SAM 9\EU
+GENERATE=w13
+
+SRCDIR=*\SAM\SAM 9\US
+DESTDIR=*\_Temp\SAM\SAM 9\US
+GENERATE=w13
+
+
+' Generate Rail Options
+
+' == Maxis ==
+
+SRCDIR=*\Rail\MAXIS
+DESTDIR=*\_Temp\Rail\MAXIS
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\US
+DESTDIR=*\_Temp\Rail\MAXIS\US
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\US\RHD
+DESTDIR=*\_Temp\Rail\MAXIS\US\RHD
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\US\LHD
+DESTDIR=*\_Temp\Rail\MAXIS\US\LHD
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\EU
+DESTDIR=*\_Temp\Rail\MAXIS\EU
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\EU\RHD
+DESTDIR=*\_Temp\Rail\MAXIS\EU\RHD
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\EU\LHD
+DESTDIR=*\_Temp\Rail\MAXIS\EU\LHD
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\SAM
+DESTDIR=*\_Temp\Rail\MAXIS\SAM
+GENERATE=W13
+
+SRCDIR=*\Rail\MAXIS\Street
+DESTDIR=*\_Temp\Rail\MAXIS\Street
+GENERATE=W13
+
+' == PEG ==
+
+SRCDIR=*\Rail\PEG
+DESTDIR=*\_Temp\Rail\PEG
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\US
+DESTDIR=*\_Temp\Rail\PEG\US
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\US\RHD
+DESTDIR=*\_Temp\Rail\PEG\US\RHD
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\US\LHD
+DESTDIR=*\_Temp\Rail\PEG\US\LHD
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\EU
+DESTDIR=*\_Temp\Rail\PEG\EU
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\EU\Puzzle
+DESTDIR=*\_Temp\Rail\RRW\EU
+GENERATE=EDIT
+ADJUSTCOLOR=DOWN
+
+SRCDIR=*\Rail\PEG\EU\RHD
+DESTDIR=*\_Temp\Rail\PEG\EU\RHD
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\EU\LHD
+DESTDIR=*\_Temp\Rail\PEG\EU\LHD
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\SAM
+DESTDIR=*\_Temp\Rail\PEG\SAM
+GENERATE=W13
+
+SRCDIR=*\Rail\PEG\Street
+DESTDIR=*\_Temp\Rail\PEG\Street
+GENERATE=W13
+
+' == RRW ==
+
+SRCDIR=*\Rail\RRW
+DESTDIR=*\_Temp\Rail\RRW
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\US
+DESTDIR=*\_Temp\Rail\RRW\US
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\US\RHD
+DESTDIR=*\_Temp\Rail\RRW\US\RHD
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\US\LHD
+DESTDIR=*\_Temp\Rail\RRW\US\LHD
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\EU
+DESTDIR=*\_Temp\Rail\RRW\EU
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\EU\RHD
+DESTDIR=*\_Temp\Rail\RRW\EU\RHD
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\EU\LHD
+DESTDIR=*\_Temp\Rail\RRW\EU\LHD
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\SAM
+DESTDIR=*\_Temp\Rail\RRW\SAM
+GENERATE=W13
+
+SRCDIR=*\Rail\RRW\Street
+DESTDIR=*\_Temp\Rail\RRW\Street
+GENERATE=W13
+
+
+'==== PACKAGE ===================
+
+' -- Package Misc --
+
+SRCDIR=*\_Temp\Misc
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Base Textures.dat
+
+SRCDIR=*\_Temp\Misc\Diag
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Diag Filler Override.dat
+
+SRCDIR=*\_Temp\Misc\Parks205
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Parks 205 Override.dat
+
+SRCDIR=*\_Temp\Misc\BSC
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN BSC Vol1-3 Override.dat
+
+' -- Package Ave
+
+SRCDIR=*\_Temp\Ave
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Ave.dat
+
+SRCDIR=*\_Temp\Ave\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN Ave EU.dat
+
+SRCDIR=*\_Temp\Ave\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN Ave US.dat
+
+SRCDIR=*\_Temp\Ave\RTL LHD
+DESTDIR=*\_Install\LHD
+PACK=MGB TGN Ave RTL LHD.dat
+
+SRCDIR=*\_Temp\Ave\RTL RHD
+DESTDIR=*\_Install\RHD
+PACK=MGB TGN Ave RTL RHD.dat
+
+' -- Package Road
+
+SRCDIR=*\_Temp\Road_EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN Road EU.dat
+
+SRCDIR=*\_Temp\Road_EU\Street
+DESTDIR=*\_Install\EU
+PACK=MGB TGN Maxis Street Roundabouts EU.dat
+
+SRCDIR=*\_Temp\Road_US
+DESTDIR=*\_Install\US
+PACK=MGB TGN Road US.dat
+
+SRCDIR=*\_Temp\Road_US\Street
+DESTDIR=*\_Install\US
+PACK=MGB TGN Maxis Street Roundabouts US.dat
+
+' -- Package OWR
+
+SRCDIR=*\_Temp\OWR
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN OWR.dat
+
+SRCDIR=*\_Temp\OWR\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN OWR EU.dat
+
+SRCDIR=*\_Temp\OWR\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN OWR US.dat
+
+' -- Package Street
+
+SRCDIR=*\_Temp\Street - Maxis
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Maxis Street.dat
+
+SRCDIR=*\_Temp\Street - Maxis\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN Maxis Street EU.dat
+
+SRCDIR=*\_Temp\Street - Maxis\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN Maxis Street US.dat
+
+
+' == Package SAM ==
+
+SRCDIR=*\_Temp\SAM\SAM 1
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 1.dat
+
+SRCDIR=*\_Temp\SAM\SAM 2
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 2.dat
+
+SRCDIR=*\_Temp\SAM\SAM 2\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 2 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 2\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 2 US.dat
+
+SRCDIR=*\_Temp\SAM\SAM 3
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 3.dat
+
+SRCDIR=*\_Temp\SAM\SAM 3\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 3 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 3\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 3 US.dat
+
+SRCDIR=*\_Temp\SAM\SAM 4
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 4.dat
+
+SRCDIR=*\_Temp\SAM\SAM 4\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 4 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 4\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 4 US.dat
+
+SRCDIR=*\_Temp\SAM\SAM 5
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 5.dat
+
+SRCDIR=*\_Temp\SAM\SAM 5\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 5 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 5\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 5 US.dat
+
+SRCDIR=*\_Temp\SAM\SAM 7
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 7.dat
+
+SRCDIR=*\_Temp\SAM\SAM 7\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 7 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 7\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 7 US.dat
+
+SRCDIR=*\_Temp\SAM\SAM 8
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 8.dat
+
+SRCDIR=*\_Temp\SAM\SAM 8\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 8 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 8\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 8 US.dat
+
+SRCDIR=*\_Temp\SAM\SAM 9
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN SAM 9.dat
+
+SRCDIR=*\_Temp\SAM\SAM 9\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN SAM 9 EU.dat
+
+SRCDIR=*\_Temp\SAM\SAM 9\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN SAM 9 US.dat
+
+
+' == PACK Rail Options ==
+
+SRCDIR=*\_Temp\Rail\Maxis
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Maxis Rail Crossings.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\SAM
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Maxis Rail Crossings for SAM.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\Street
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Maxis Street Maxis Rail Crossings.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN Maxis Rail Crossings US.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\US\RHD
+DESTDIR=*\_Install\US\RHD
+PACK=MGB TGN Maxis Rail Crossings US RHD.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\US\LHD
+DESTDIR=*\_Install\US\LHD
+PACK=MGB TGN Maxis Rail Crossings US LHD.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN Maxis Rail Crossings EU.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\EU\RHD
+DESTDIR=*\_Install\EU\RHD
+PACK=MGB TGN Maxis Rail Crossings EU RHD.dat
+
+SRCDIR=*\_Temp\Rail\Maxis\EU\LHD
+DESTDIR=*\_Install\EU\LHD
+PACK=MGB TGN Maxis Rail Crossings EU LHD.dat
+
+
+SRCDIR=*\_Temp\Rail\PEG
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN PEG Rail Crossings.dat
+
+SRCDIR=*\_Temp\Rail\PEG\SAM
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN PEG Rail Crossings for SAM.dat
+
+SRCDIR=*\_Temp\Rail\PEG\Street
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Maxis Street PEG Rail Crossings.dat
+
+SRCDIR=*\_Temp\Rail\PEG\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN PEG Rail Crossings US.dat
+
+SRCDIR=*\_Temp\Rail\PEG\US\RHD
+DESTDIR=*\_Install\US\RHD
+PACK=MGB TGN PEG Rail Crossings US RHD.dat
+
+SRCDIR=*\_Temp\Rail\PEG\US\LHD
+DESTDIR=*\_Install\US\LHD
+PACK=MGB TGN PEG Rail Crossings US LHD.dat
+
+SRCDIR=*\_Temp\Rail\PEG\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN PEG Rail Crossings EU.dat
+
+SRCDIR=*\_Temp\Rail\PEG\EU\RHD
+DESTDIR=*\_Install\EU\RHD
+PACK=MGB TGN PEG Rail Crossings EU RHD.dat
+
+SRCDIR=*\_Temp\Rail\PEG\EU\LHD
+DESTDIR=*\_Install\EU\LHD
+PACK=MGB TGN PEG Rail Crossings EU LHD.dat
+
+
+SRCDIR=*\_Temp\Rail\RRW
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN RRW Crossings.dat
+
+SRCDIR=*\_Temp\Rail\RRW\SAM
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN RRW Crossings for SAM.dat
+
+SRCDIR=*\_Temp\Rail\RRW\Street
+DESTDIR=*\_Install\Generic
+PACK=MGB TGN Maxis Street RRW Crossings.dat
+
+SRCDIR=*\_Temp\Rail\RRW\US
+DESTDIR=*\_Install\US
+PACK=MGB TGN RRW Crossings US.dat
+
+SRCDIR=*\_Temp\Rail\RRW\US\RHD
+DESTDIR=*\_Install\US\RHD
+PACK=MGB TGN RRW Crossings US RHD.dat
+
+SRCDIR=*\_Temp\Rail\RRW\US\LHD
+DESTDIR=*\_Install\US\LHD
+PACK=MGB TGN RRW Crossings US LHD.dat
+
+SRCDIR=*\_Temp\Rail\RRW\EU
+DESTDIR=*\_Install\EU
+PACK=MGB TGN RRW Crossings EU.dat
+
+SRCDIR=*\_Temp\Rail\RRW\EU\RHD
+DESTDIR=*\_Install\EU\RHD
+PACK=MGB TGN RRW Crossings EU RHD.dat
+
+SRCDIR=*\_Temp\Rail\RRW\EU\LHD
+DESTDIR=*\_Install\EU\LHD
+PACK=MGB TGN RRW Crossings EU LHD.dat
