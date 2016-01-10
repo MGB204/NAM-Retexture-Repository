@@ -4,6 +4,35 @@ REM		 10/01/2016
 REM		
 REM		 First we'll create a mirror folder structure for temp copy operations
 REM		 ---------------------------------------------------------
+@Echo Off
+CLS
+Echo(
+Echo(
+Echo(
+Echo                      ***********************************************
+Echo                      **                                           **
+Echo                      **        WARNING - SUPER IMPORTANT          **
+Echo                      **                                           **
+Echo                      ***********************************************
+Echo(
+Echo   Running this script will swap all D0 Definition Alphas for regular Alphas.
+Echo   Ensure you read the included Readme before carrying out this operation.
+Echo   If you have not run this file from it's original location, it could cause
+Echo   undesirable behaviour. You have been warned.
+Echo(
+Echo   Note: Users looking to create custom TGN textures should NOT need to run this script!
+Echo(
+Echo(
+Echo(
+Echo   Are you sure you want to continue?
+Echo(
+set /p answer=  Type "Y" then press Enter/Return to continue. 
+if /i "%answer:~,1%" EQU "Y" goto runScript
+if not /i "%answer:~,1%" EQU "Y" exit /b
+
+:runscript
+
+:RunScript
 
 MD tmp
 
