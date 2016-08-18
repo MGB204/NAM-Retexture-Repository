@@ -1,5 +1,5 @@
 REM		 TGN to NGN Auto-Converter Script
-REM		 v1.2
+REM		 v1.3 - Add UKOld RTL-AVE
 REM		 10/01/2016
 REM		
 REM		 First we'll create a mirror folder structure for temp copy operations
@@ -39,7 +39,9 @@ MD tmp
 MD tmp\Ave
 MD tmp\Ave\EU
 MD tmp\Ave\"RTL LHD"
+MD tmp\Ave\"RTL LHD"\UKOld
 MD tmp\Ave\"RTL RHD"
+MD tmp\Ave\"RTL RHD"\UKOld
 MD tmp\Ave\US
 MD tmp\Ave\WRC
 
@@ -147,9 +149,13 @@ CD EU
 Copy *-d0.bmp ..\..\tmp\Ave\EU
 CD..\"RTL LHD"
 Copy *-d0.bmp ..\..\tmp\Ave\"RTL LHD"
-CD..\"RTL RHD"
+CD UKOld
+Copy *-d0.bmp ..\..\..\tmp\Ave\"RTL LHD"\UKOld
+CD..\..\"RTL RHD"
 Copy *-d0.bmp ..\..\tmp\Ave\"RTL RHD"
-CD..\US
+CD UKOld
+Copy *-d0.bmp ..\..\..\tmp\Ave\"RTL RHD"\UKOld
+CD..\..\US
 Copy *-d0.bmp ..\..\tmp\Ave\US
 CD..\WRC
 Copy *-d0.bmp ..\..\tmp\Ave\WRC
@@ -336,9 +342,13 @@ CD EU
 Copy *.* ..\..\..\Ave\EU /y
 CD..\"RTL LHD"
 Copy *.* ..\..\..\Ave\"RTL LHD" /y
-CD..\"RTL RHD"
+CD UKOld
+Copy *.* ..\..\..\..\Ave\"RTL LHD"\UKOld /y
+CD..\..\"RTL RHD"
 Copy *.* ..\..\..\Ave\"RTL RHD" /y
-CD..\US
+CD UKOld
+Copy *.* ..\..\..\..\Ave\"RTL RHD"\UKOld /y
+CD..\..\US
 Copy *.* ..\..\..\Ave\US /y
 CD..\WRC
 Copy *.* ..\..\..\Ave\WRC /y
@@ -519,9 +529,13 @@ CD EU
 Copy *.* ..\..\..\"_Alt"\Ave\EU /y
 CD..\"RTL LHD"
 Copy *.* ..\..\..\"_Alt"\Ave\"RTL LHD" /y
-CD..\"RTL RHD"
+CD UKOld
+Copy *.* ..\..\..\..\"_Alt"\Ave\"RTL LHD"\UKOld /y
+CD..\..\"RTL RHD"
 Copy *.* ..\..\..\"_Alt"\Ave\"RTL RHD" /y
-CD..\US
+CD UKOld
+Copy *.* ..\..\..\..\"_Alt"\Ave\"RTL RHD"\UKOld /y
+CD..\..\US
 Copy *.* ..\..\..\"_Alt"\Ave\US /y
 CD..\WRC
 Copy *.* ..\..\..\"_Alt"\Ave\WRC /y
