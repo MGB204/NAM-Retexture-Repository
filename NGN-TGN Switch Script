@@ -1,6 +1,6 @@
 REM		 TGN to NGN Auto-Converter Script
-REM		 v1.3 - Add UKOld RTL-AVE
-REM		 10/01/2016
+REM		 v1.4 - Add Optional Patches
+REM		 09/12/2016
 REM		
 REM		 First we'll create a mirror folder structure for temp copy operations
 REM		 ---------------------------------------------------------
@@ -136,6 +136,11 @@ MD tmp\SAM\"SAM 9"\US
 MD tmp\"Street - Maxis"
 MD tmp\"Street - Maxis"\EU
 MD tmp\"Street - Maxis"\US
+
+MD tmp\zPatches\AveZebras
+MD tmp\zPatches\CullDeSac\EU
+MD tmp\zPatches\CullDeSac\Street
+MD tmp\zPatches\CullDeSac\US
 
 
 REM TempCopy
@@ -330,13 +335,21 @@ Copy *-d0.bmp ..\..\tmp\"Street - Maxis"\EU
 CD..\US
 Copy *-d0.bmp ..\..\tmp\"Street - Maxis"\US
 
+CD..\..\zPatches\AveZebras
+Copy *-d0.bmp ..\..\tmp\zPatches\AveZebras
+CD..\CullDeSac\EU
+Copy *-d0.bmp ..\..\..\tmp\zPatches\CullDeSac\EU
+CD ..\Street
+Copy *-d0.bmp ..\..\..\tmp\zPatches\CullDeSac\Street
+CD ..\US
+Copy *-d0.bmp ..\..\..\tmp\zPatches\CullDeSac\US
 
 REM Copy Alt D0s
 REM Copies the currently unused D0s and overwrites the in-use set
 REM --------------------------------------------------------------------
 
 
-CD..\..\"_Alt"\Ave
+CD..\..\..\"_Alt"\Ave
 Copy *.* ..\..\Ave /y
 CD EU
 Copy *.* ..\..\..\Ave\EU /y
@@ -519,11 +532,20 @@ Copy *.* ..\..\..\"Street - Maxis"\EU /y
 CD..\US
 Copy *.* ..\..\..\"Street - Maxis"\US /y
 
+CD..\..\zPatches\AveZebras
+Copy *.* ..\..\..\zPatches\AveZebras /y
+CD..\CullDeSac\EU
+Copy *.* ..\..\..\..\zPatches\CullDeSac\EU /y
+CD ..\Street
+Copy *.* ..\..\..\..\zPatches\CullDeSac\Street /y
+CD ..\US
+Copy *.* ..\..\..\..\zPatches\CullDeSac\US /y
+
 REM Copy Temp D0s (new alt)
 REM Copies the temporary files to the currently unused set.
 REM --------------------------------------------------------------------------
 
-CD..\..\..\tmp\Ave
+CD..\..\..\..\tmp\Ave
 Copy *.* ..\..\"_Alt"\Ave /y
 CD EU
 Copy *.* ..\..\..\"_Alt"\Ave\EU /y
@@ -709,8 +731,17 @@ Copy *.* ..\..\..\"_Alt"\"Street - Maxis"\EU /y
 CD..\US
 Copy *.* ..\..\..\"_Alt"\"Street - Maxis"\US /y
 
+CD..\..\zPatches\AveZebras
+Copy *.* ..\..\..\"_Alt"\zPatches\AveZebras /y
+CD..\CullDeSac\EU
+Copy *.* ..\..\..\..\"_Alt"\zPatches\CullDeSac\EU /y
+CD ..\Street
+Copy *.* ..\..\..\..\"_Alt"\zPatches\CullDeSac\Street /y
+CD ..\US
+Copy *.* ..\..\..\..\"_Alt"\zPatches\CullDeSac\US /y
+
 REM reset to main Dir and remove tmp directory
 REM ------------------------------------------
 
-CD..\..\..
+CD..\..\..\..
 RD TMP /S /Q
