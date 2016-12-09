@@ -84,6 +84,7 @@ MD tmp\Rail\RRW\US\LHD
 MD tmp\Rail\RRW\US\RHD
 
 MD tmp\Road_EU
+MD tmp\Road_EU\w16
 MD tmp\Road_EU\"FAN + WRC"
 MD tmp\Road_EU\NWM
 MD tmp\Road_EU\Roundabout
@@ -98,6 +99,7 @@ MD tmp\Road_EU\Roundabout\w13
 MD tmp\Road_EU\Roundabout\zLast
 
 MD tmp\Road_US
+MD tmp\Road_US\w16
 MD tmp\Road_US\"FAN + WRC"
 MD tmp\Road_US\NWM
 MD tmp\Road_US\Roundabout
@@ -238,7 +240,9 @@ Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\US\RHD
 
 CD..\..\..\..\Road_EU
 Copy *-d0.bmp ..\tmp\Road_EU
-CD "FAN + WRC"
+CD w16
+Copy *-d0.bmp ..\..\tmp\Road_EU\w16
+CD..\"FAN + WRC"
 Copy *-d0.bmp ..\..\tmp\Road_EU\"FAN + WRC"
 CD..\NWM
 Copy *-d0.bmp ..\..\tmp\Road_EU\NWM
@@ -264,7 +268,9 @@ Copy *-d0.bmp ..\..\..\tmp\Road_EU\Roundabout\zLast
 
 CD..\..\..\Road_US
 Copy *-d0.bmp ..\tmp\Road_US
-CD "FAN + WRC"
+CD w16
+Copy *-d0.bmp ..\..\tmp\Road_US\w16
+CD..\"FAN + WRC"
 Copy *-d0.bmp ..\..\tmp\Road_US\"FAN + WRC"
 CD..\NWM
 Copy *-d0.bmp ..\..\tmp\Road_US\NWM
@@ -436,7 +442,9 @@ Copy *.* ..\..\..\..\..\Rail\RRW\US\RHD /y
 
 CD..\..\..\..\Road_EU
 Copy *.* ..\..\Road_EU /y
-CD "FAN + WRC"
+CD w16
+Copy *.* ..\..\..\Road_EU\w16 /y
+CD..\"FAN + WRC"
 Copy *.* ..\..\..\Road_EU\"FAN + WRC" /y
 CD..\NWM
 Copy *.* ..\..\..\Road_EU\NWM /y
@@ -461,7 +469,9 @@ Copy *.* ..\..\..\..\Road_EU\Roundabout\zLast /y
 
 CD..\..\..\Road_US
 Copy *.* ..\..\Road_US /y
-CD "FAN + WRC"
+CD w16
+Copy *.* ..\..\..\Road_US\w16 /y
+CD..\"FAN + WRC"
 Copy *.* ..\..\..\Road_US\"FAN + WRC" /y
 CD..\NWM
 Copy *.* ..\..\..\Road_US\NWM /y
@@ -635,7 +645,9 @@ Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\US\RHD /y
 
 CD..\..\..\..\Road_EU
 Copy *.* ..\..\"_Alt"\Road_EU /y
-CD "FAN + WRC"
+CD w16
+Copy *.* ..\..\..\"_Alt"\Road_EU\w16 /y
+CD..\"FAN + WRC"
 Copy *.* ..\..\..\"_Alt"\Road_EU\"FAN + WRC" /y
 CD..\NWM
 Copy *.* ..\..\..\"_Alt"\Road_EU\NWM /y
@@ -660,7 +672,9 @@ Copy *.* ..\..\..\..\"_Alt"\Road_EU\Roundabout\zLast /y
 
 CD..\..\..\Road_US
 Copy *.* ..\..\"_Alt"\Road_US /y
-CD "FAN + WRC"
+CD w16
+Copy *.* ..\..\..\"_Alt"\Road_US\w16 /y
+CD..\"FAN + WRC"
 Copy *.* ..\..\..\"_Alt"\Road_US\"FAN + WRC" /y
 CD..\NWM
 Copy *.* ..\..\..\"_Alt"\Road_US\NWM /y
