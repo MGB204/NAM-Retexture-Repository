@@ -1,9 +1,10 @@
 REM		 TGN to NGN Auto-Converter Script
-REM		 v1.4 - Add Optional Patches
-REM		 09/12/2016
+REM		 v1.5 - Add New Rail Textures
+REM		 09/01/2017
 REM		
 REM		 First we'll create a mirror folder structure for temp copy operations
 REM		 ---------------------------------------------------------
+REM
 @Echo Off
 CLS
 Echo(
@@ -50,38 +51,118 @@ MD tmp\OWR\EU
 MD tmp\OWR\US
 MD tmp\OWR\WRC
 
-MD tmp\Rail
+MD tmp\Rail\GLR
+MD tmp\Rail\GLR\US
+MD tmp\Rail\Maxis\"03 - Road EU"
+MD tmp\Rail\Maxis\"03 - Road EU"\FAR
+MD tmp\Rail\Maxis\"03 - Road EU"\FAR\Puzzle
+MD tmp\Rail\Maxis\"03 - Road EU"\LHD
+MD tmp\Rail\Maxis\"03 - Road EU"\LHD\FAR
+MD tmp\Rail\Maxis\"03 - Road EU"\LHD\FAR\Puzzle
+MD tmp\Rail\Maxis\"03 - Road US"
+MD tmp\Rail\Maxis\"03 - Road US"\FAR
+MD tmp\Rail\Maxis\"03 - Road US"\FAR\Puzzle
+MD tmp\Rail\Maxis\"03 - Road US"\LHD
+MD tmp\Rail\Maxis\"03 - Road US"\LHD\FAR
+MD tmp\Rail\Maxis\"03 - Road US"\LHD\FAR\Puzzle
+MD tmp\Rail\Maxis\"04 - Ave"
+MD tmp\Rail\Maxis\"04 - Ave"\LHD
+MD tmp\Rail\Maxis\"05 - Street"
+MD tmp\Rail\Maxis\"05 - Street"\LHD
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-2
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-3
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-4
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-5
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-6
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-7
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-7\LHD
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-8
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-9
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-10
+MD tmp\Rail\Maxis\"5E - SAM"\SAM-10\LHD
+MD tmp\Rail\Maxis\"09 - OWR"
+MD tmp\Rail\Maxis\"51 - NWM EU"
+MD tmp\Rail\Maxis\"51 - NWM EU"\W16F
+MD tmp\Rail\Maxis\"51 - NWM EU"\LHD\
+MD tmp\Rail\Maxis\"51 - NWM EU"\LHD\W16F
+MD tmp\Rail\Maxis\"51 - NWM US"
+MD tmp\Rail\Maxis\"51 - NWM US"\W16F
+MD tmp\Rail\Maxis\"51 - NWM US"\LHD\
+MD tmp\Rail\Maxis\"51 - NWM US"\LHD\W16F
 
-MD tmp\Rail\Maxis
-MD tmp\Rail\Maxis\EU
-MD tmp\Rail\Maxis\EU\LHD
-MD tmp\Rail\Maxis\EU\RHD
-MD tmp\Rail\Maxis\SAM
-MD tmp\Rail\Maxis\Street
-MD tmp\Rail\Maxis\US
-MD tmp\Rail\Maxis\US\LHD
-MD tmp\Rail\Maxis\US\RHD
+MD tmp\Rail\PEG\"03 - Road EU"
+MD tmp\Rail\PEG\"03 - Road EU"\FAR
+MD tmp\Rail\PEG\"03 - Road EU"\FAR\Puzzle
+MD tmp\Rail\PEG\"03 - Road EU"\LHD
+MD tmp\Rail\PEG\"03 - Road EU"\LHD\FAR
+MD tmp\Rail\PEG\"03 - Road EU"\LHD\FAR\Puzzle
+MD tmp\Rail\PEG\"03 - Road US"
+MD tmp\Rail\PEG\"03 - Road US"\FAR
+MD tmp\Rail\PEG\"03 - Road US"\FAR\Puzzle
+MD tmp\Rail\PEG\"03 - Road US"\LHD
+MD tmp\Rail\PEG\"03 - Road US"\LHD\FAR
+MD tmp\Rail\PEG\"03 - Road US"\LHD\FAR\Puzzle
+MD tmp\Rail\PEG\"04 - Ave"
+MD tmp\Rail\PEG\"04 - Ave"\LHD
+MD tmp\Rail\PEG\"05 - Street"
+MD tmp\Rail\PEG\"05 - Street"\LHD
+MD tmp\Rail\PEG\"5E - SAM"\SAM-2
+MD tmp\Rail\PEG\"5E - SAM"\SAM-3
+MD tmp\Rail\PEG\"5E - SAM"\SAM-4
+MD tmp\Rail\PEG\"5E - SAM"\SAM-5
+MD tmp\Rail\PEG\"5E - SAM"\SAM-6
+MD tmp\Rail\PEG\"5E - SAM"\SAM-7
+MD tmp\Rail\PEG\"5E - SAM"\SAM-7\LHD
+MD tmp\Rail\PEG\"5E - SAM"\SAM-8
+MD tmp\Rail\PEG\"5E - SAM"\SAM-9
+MD tmp\Rail\PEG\"5E - SAM"\SAM-10
+MD tmp\Rail\PEG\"5E - SAM"\SAM-10\LHD
+MD tmp\Rail\PEG\"09 - OWR"
+MD tmp\Rail\PEG\"51 - NWM EU"
+MD tmp\Rail\PEG\"51 - NWM EU"\W16F
+MD tmp\Rail\PEG\"51 - NWM EU"\LHD\
+MD tmp\Rail\PEG\"51 - NWM EU"\LHD\W16F
+MD tmp\Rail\PEG\"51 - NWM US"
+MD tmp\Rail\PEG\"51 - NWM US"\W16F
+MD tmp\Rail\PEG\"51 - NWM US"\LHD\
+MD tmp\Rail\PEG\"51 - NWM US"\LHD\W16F
 
-MD tmp\Rail\PEG
-MD tmp\Rail\PEG\EU
-MD tmp\Rail\PEG\EU\LHD
-MD tmp\Rail\PEG\EU\RHD
-MD tmp\Rail\PEG\SAM
-MD tmp\Rail\PEG\Street
-MD tmp\Rail\PEG\US
-MD tmp\Rail\PEG\US\LHD
-MD tmp\Rail\PEG\US\RHD
-
-MD tmp\Rail\RRW
-MD tmp\Rail\RRW\EU
-MD tmp\Rail\RRW\EU\Puzzle
-MD tmp\Rail\RRW\EU\LHD
-MD tmp\Rail\RRW\EU\RHD
-MD tmp\Rail\RRW\SAM
-MD tmp\Rail\RRW\Street
-MD tmp\Rail\RRW\US
-MD tmp\Rail\RRW\US\LHD
-MD tmp\Rail\RRW\US\RHD
+MD tmp\Rail\RRW\"03 - Road EU"
+MD tmp\Rail\RRW\"03 - Road EU"\FAR
+MD tmp\Rail\RRW\"03 - Road EU"\FAR\Puzzle
+MD tmp\Rail\RRW\"03 - Road EU"\LHD
+MD tmp\Rail\RRW\"03 - Road EU"\LHD\FAR
+MD tmp\Rail\RRW\"03 - Road EU"\LHD\FAR\Puzzle
+MD tmp\Rail\RRW\"03 - Road US"
+MD tmp\Rail\RRW\"03 - Road US"\FAR
+MD tmp\Rail\RRW\"03 - Road US"\FAR\Puzzle
+MD tmp\Rail\RRW\"03 - Road US"\LHD
+MD tmp\Rail\RRW\"03 - Road US"\LHD\FAR
+MD tmp\Rail\RRW\"03 - Road US"\LHD\FAR\Puzzle
+MD tmp\Rail\RRW\"04 - Ave"
+MD tmp\Rail\RRW\"04 - Ave"\LHD
+MD tmp\Rail\RRW\"05 - Street"
+MD tmp\Rail\RRW\"05 - Street"\LHD
+MD tmp\Rail\RRW\"5E - SAM"\SAM-2
+MD tmp\Rail\RRW\"5E - SAM"\SAM-3
+MD tmp\Rail\RRW\"5E - SAM"\SAM-4
+MD tmp\Rail\RRW\"5E - SAM"\SAM-5
+MD tmp\Rail\RRW\"5E - SAM"\SAM-6
+MD tmp\Rail\RRW\"5E - SAM"\SAM-7
+MD tmp\Rail\RRW\"5E - SAM"\SAM-7\LHD
+MD tmp\Rail\RRW\"5E - SAM"\SAM-8
+MD tmp\Rail\RRW\"5E - SAM"\SAM-9
+MD tmp\Rail\RRW\"5E - SAM"\SAM-10
+MD tmp\Rail\RRW\"5E - SAM"\SAM-10\LHD
+MD tmp\Rail\RRW\"09 - OWR"
+MD tmp\Rail\RRW\"51 - NWM EU"
+MD tmp\Rail\RRW\"51 - NWM EU"\W16F
+MD tmp\Rail\RRW\"51 - NWM EU"\LHD\
+MD tmp\Rail\RRW\"51 - NWM EU"\LHD\W16F
+MD tmp\Rail\RRW\"51 - NWM US"
+MD tmp\Rail\RRW\"51 - NWM US"\W16F
+MD tmp\Rail\RRW\"51 - NWM US"\LHD\
+MD tmp\Rail\RRW\"51 - NWM US"\LHD\W16F
 
 MD tmp\Road_EU
 MD tmp\Road_EU\w16
@@ -90,13 +171,10 @@ MD tmp\Road_EU\NWM
 MD tmp\Road_EU\Roundabout
 MD tmp\Road_EU\Roundabout\Edit
 MD tmp\Road_EU\Roundabout\Edit\Puzzle
-MD tmp\Road_EU\Roundabout\Edit\"Puzzle No Mips"
+MD tmp\Road_EU\Roundabout\Edit\Puzzle\NoMips
 MD tmp\Road_EU\Roundabout\Street
 MD tmp\Road_EU\Roundabout\Street\Puzzle
-MD tmp\Road_EU\Roundabout\Street\W13
-MD tmp\Road_EU\Roundabout\Street\W13\Last
-MD tmp\Road_EU\Roundabout\w13
-MD tmp\Road_EU\Roundabout\zLast
+MD tmp\Road_EU\Roundabout\w16
 
 MD tmp\Road_US
 MD tmp\Road_US\w16
@@ -105,35 +183,36 @@ MD tmp\Road_US\NWM
 MD tmp\Road_US\Roundabout
 MD tmp\Road_US\Roundabout\Edit
 MD tmp\Road_US\Roundabout\Edit\Puzzle
-MD tmp\Road_US\Roundabout\Edit\"Puzzle No Mips"
+MD tmp\Road_US\Roundabout\Edit\Puzzle\NoMips
 MD tmp\Road_US\Roundabout\Street
 MD tmp\Road_US\Roundabout\Street\Puzzle
-MD tmp\Road_US\Roundabout\w13
-MD tmp\Road_US\Roundabout\zLast
+MD tmp\Road_US\Roundabout\w16
 
 MD tmp\SAM
-MD tmp\SAM\"SAM 1"
-MD tmp\SAM\"SAM 2"
-MD tmp\SAM\"SAM 2"\EU
-MD tmp\SAM\"SAM 2"\US
-MD tmp\SAM\"SAM 3"
-MD tmp\SAM\"SAM 3"\EU
-MD tmp\SAM\"SAM 3"\US
-MD tmp\SAM\"SAM 4"
-MD tmp\SAM\"SAM 4"\EU
-MD tmp\SAM\"SAM 4"\US
-MD tmp\SAM\"SAM 5"
-MD tmp\SAM\"SAM 5"\EU
-MD tmp\SAM\"SAM 5"\US
-MD tmp\SAM\"SAM 7"
-MD tmp\SAM\"SAM 7"\EU
-MD tmp\SAM\"SAM 7"\US
-MD tmp\SAM\"SAM 8"
-MD tmp\SAM\"SAM 8"\EU
-MD tmp\SAM\"SAM 8"\US
-MD tmp\SAM\"SAM 9"
-MD tmp\SAM\"SAM 9"\EU
-MD tmp\SAM\"SAM 9"\US
+MD tmp\SAM\"SAM-1"
+MD tmp\SAM\"SAM-2"
+MD tmp\SAM\"SAM-2"\EU
+MD tmp\SAM\"SAM-2"\US
+MD tmp\SAM\"SAM-3"
+MD tmp\SAM\"SAM-3"\EU
+MD tmp\SAM\"SAM-3"\US
+MD tmp\SAM\"SAM-4"
+MD tmp\SAM\"SAM-4"\EU
+MD tmp\SAM\"SAM-4"\US
+MD tmp\SAM\"SAM-5"
+MD tmp\SAM\"SAM-5"\EU
+MD tmp\SAM\"SAM-5"\US
+MD tmp\SAM\"SAM-7"
+MD tmp\SAM\"SAM-7"\EU
+MD tmp\SAM\"SAM-7"\US
+MD tmp\SAM\"SAM-8"
+MD tmp\SAM\"SAM-8"\EU
+MD tmp\SAM\"SAM-8"\US
+MD tmp\SAM\"SAM-9"
+MD tmp\SAM\"SAM-9"\EU
+MD tmp\SAM\"SAM-9"\US
+MD tmp\SAM\"SAM-6&10"\EU
+MD tmp\SAM\"SAM-6&10"\US
 
 MD tmp\"Street - Maxis"
 MD tmp\"Street - Maxis"\EU
@@ -144,11 +223,9 @@ MD tmp\zPatches\CullDeSac\EU
 MD tmp\zPatches\CullDeSac\Street
 MD tmp\zPatches\CullDeSac\US
 
-
 REM TempCopy
 REM Copies Current D0s to Temporary Folder for processing copy operations
 REM -------------------------------------------------------------
-
 
 CD Ave
 Copy *-d0.bmp ..\tmp\Ave
@@ -178,67 +255,256 @@ CD..\WRC
 Copy *-d0.bmp ..\..\tmp\OWR\WRC
 
 
-CD..\..\Rail\Maxis
-Copy *-d0.bmp ..\..\tmp\Rail\Maxis
-CD EU
-Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\EU
-CD LHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\EU\LHD
-CD..\RHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\EU\RHD
-CD..\..\SAM
-Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\SAM
-CD..\Street
-Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\Street
-CD..\US
-Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\US
-CD LHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\US\LHD
-CD..\RHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\US\RHD
+CD..\..\Rail\GLR
+Copy *-d0.bmp ..\..\tmp\Rail\GLR
+CD US
+Copy *-d0.bmp ..\..\..\tmp\Rail\GLR\US
 
-CD..\..\..\PEG
-Copy *-d0.bmp ..\..\tmp\Rail\PEG
-CD EU
-Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\EU
-CD LHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\EU\LHD
-CD..\RHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\EU\RHD
-CD..\..\SAM
-Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\SAM
-CD..\Street
-Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\Street
-CD..\US
-Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\US
-CD LHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\US\LHD
-CD..\RHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\US\RHD
 
-CD..\..\..\RRW
-Copy *-d0.bmp ..\..\tmp\Rail\RRW
-CD EU
-Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\EU
+CD..\..\Maxis\"03 - Road EU"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"03 - Road EU"
+CD FAR
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"03 - Road EU"\FAR
 CD Puzzle
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\EU\Puzzle
-CD ..\LHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\EU\LHD
-CD..\RHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\EU\RHD
-CD..\..\SAM
-Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\SAM
-CD..\Street
-Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\Street
-CD..\US
-Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\US
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"03 - Road EU"\FAR\Puzzle
+CD ..\..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"03 - Road EU"\LHD
+CD FAR
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"03 - Road EU"\LHD\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\..\tmp\Rail\Maxis\"03 - Road EU"\LHD\FAR\Puzzle
+
+CD..\..\..\..\"03 - Road US"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"03 - Road US"
+CD FAR
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"03 - Road US"\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"03 - Road US"\FAR\Puzzle
+CD ..\..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"03 - Road US"\LHD
+CD FAR
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"03 - Road US"\LHD\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\..\tmp\Rail\Maxis\"03 - Road US"\LHD\FAR\Puzzle
+
+CD ..\..\..\..\"04 - Ave"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"04 - Ave"
 CD LHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\US\LHD
-CD..\RHD
-Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\US\RHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"04 - Ave"\LHD
+
+CD ..\..\"05 - Street"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"05 - Street"
+CD LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"05 - Street"\LHD
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-2
+CD..\SAM-3
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-3
+CD..\SAM-4
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-4
+CD..\SAM-5
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-5
+CD..\SAM-6
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-6
+CD..\SAM-7
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-7
+CD LHD
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-7\LHD
+CD..\..\SAM-8
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-8
+CD..\SAM-9
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-9
+CD..\SAM-10
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-10
+CD LHD
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"5E - SAM"\SAM-10\LHD
+
+CD..\..\..\"09 - OWR"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"09 - OWR"
+
+CD..\"51 - NWM EU"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"51 - NWM EU"
+CD W16F
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"51 - NWM EU"\W16F
+CD..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"51 - NWM EU"\LHD
+CD W16F
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"51 - NWM EU"\LHD\W16F
+
+CD..\..\..\"51 - NWM US"
+Copy *-d0.bmp ..\..\..\tmp\Rail\Maxis\"51 - NWM US"
+CD W16F
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"51 - NWM US"\W16F
+CD..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\Maxis\"51 - NWM US"\LHD
+CD W16F
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\Maxis\"51 - NWM US"\LHD\W16F
 
 
-CD..\..\..\..\Road_EU
+CD..\..\..\..\PEG\"03 - Road EU"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"03 - Road EU"
+CD FAR
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"03 - Road EU"\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"03 - Road EU"\FAR\Puzzle
+CD ..\..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"03 - Road EU"\LHD
+CD FAR
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"03 - Road EU"\LHD\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\..\tmp\Rail\PEG\"03 - Road EU"\LHD\FAR\Puzzle
+
+CD..\..\..\..\"03 - Road US"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"03 - Road US"
+CD FAR
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"03 - Road US"\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"03 - Road US"\FAR\Puzzle
+CD ..\..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"03 - Road US"\LHD
+CD FAR
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"03 - Road US"\LHD\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\..\tmp\Rail\PEG\"03 - Road US"\LHD\FAR\Puzzle
+
+CD ..\..\..\..\"04 - Ave"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"04 - Ave"
+CD LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"04 - Ave"\LHD
+
+CD ..\..\"05 - Street"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"05 - Street"
+CD LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"05 - Street"\LHD
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-2
+CD..\SAM-3
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-3
+CD..\SAM-4
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-4
+CD..\SAM-5
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-5
+CD..\SAM-6
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-6
+CD..\SAM-7
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-7
+CD LHD
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-7\LHD
+CD..\..\SAM-8
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-8
+CD..\SAM-9
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-9
+CD..\SAM-10
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-10
+CD LHD
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"5E - SAM"\SAM-10\LHD
+
+CD..\..\..\"09 - OWR"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"09 - OWR"
+
+CD..\"51 - NWM EU"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"51 - NWM EU"
+CD W16F
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"51 - NWM EU"\W16F
+CD..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"51 - NWM EU"\LHD
+CD W16F
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"51 - NWM EU"\LHD\W16F
+
+CD..\..\..\"51 - NWM US"
+Copy *-d0.bmp ..\..\..\tmp\Rail\PEG\"51 - NWM US"
+CD W16F
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"51 - NWM US"\W16F
+CD..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\PEG\"51 - NWM US"\LHD
+CD W16F
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\PEG\"51 - NWM US"\LHD\W16F
+
+
+CD..\..\..\..\RRW\"03 - Road EU"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"03 - Road EU"
+CD FAR
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"03 - Road EU"\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"03 - Road EU"\FAR\Puzzle
+CD ..\..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"03 - Road EU"\LHD
+CD FAR
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"03 - Road EU"\LHD\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\..\tmp\Rail\RRW\"03 - Road EU"\LHD\FAR\Puzzle
+
+CD..\..\..\..\"03 - Road US"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"03 - Road US"
+CD FAR
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"03 - Road US"\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"03 - Road US"\FAR\Puzzle
+CD ..\..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"03 - Road US"\LHD
+CD FAR
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"03 - Road US"\LHD\FAR
+CD Puzzle
+Copy *-d0.bmp ..\..\..\..\..\..\tmp\Rail\RRW\"03 - Road US"\LHD\FAR\Puzzle
+
+CD ..\..\..\..\"04 - Ave"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"04 - Ave"
+CD LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"04 - Ave"\LHD
+
+CD ..\..\"05 - Street"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"05 - Street"
+CD LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"05 - Street"\LHD
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-2
+CD..\SAM-3
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-3
+CD..\SAM-4
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-4
+CD..\SAM-5
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-5
+CD..\SAM-6
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-6
+CD..\SAM-7
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-7
+CD LHD
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-7\LHD
+CD..\..\SAM-8
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-8
+CD..\SAM-9
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-9
+CD..\SAM-10
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-10
+CD LHD
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"5E - SAM"\SAM-10\LHD
+
+CD..\..\..\"09 - OWR"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"09 - OWR"
+
+CD..\"51 - NWM EU"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"51 - NWM EU"
+CD W16F
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"51 - NWM EU"\W16F
+CD..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"51 - NWM EU"\LHD
+CD W16F
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"51 - NWM EU"\LHD\W16F
+
+CD..\..\..\"51 - NWM US"
+Copy *-d0.bmp ..\..\..\tmp\Rail\RRW\"51 - NWM US"
+CD W16F
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"51 - NWM US"\W16F
+CD..\LHD
+Copy *-d0.bmp ..\..\..\..\tmp\Rail\RRW\"51 - NWM US"\LHD
+CD W16F
+Copy *-d0.bmp ..\..\..\..\..\tmp\Rail\RRW\"51 - NWM US"\LHD\W16F
+
+
+CD..\..\..\..\..\Road_EU
 Copy *-d0.bmp ..\tmp\Road_EU
 CD w16
 Copy *-d0.bmp ..\..\tmp\Road_EU\w16
@@ -250,21 +516,14 @@ CD..\Roundabout\Edit
 Copy *-d0.bmp ..\..\..\tmp\Road_EU\Roundabout\Edit
 CD Puzzle
 Copy *-d0.bmp ..\..\..\..\tmp\Road_EU\Roundabout\Edit\Puzzle
-CD..\"Puzzle No Mips"
-Copy *-d0.bmp ..\..\..\..\tmp\Road_EU\Roundabout\Edit\"Puzzle No Mips"
-CD..\..\Street
+CD NoMips
+Copy *-d0.bmp ..\..\..\..\..\tmp\Road_EU\Roundabout\Edit\Puzzle\NoMips
+CD..\..\..\Street
 Copy *-d0.bmp ..\..\..\tmp\Road_EU\Roundabout\Street
 CD Puzzle
 Copy *-d0.bmp ..\..\..\..\tmp\Road_EU\Roundabout\Street\Puzzle
-CD..\W13
-Copy *-d0.bmp ..\..\..\..\tmp\Road_EU\Roundabout\Street\W13
-CD Last
-Copy *-d0.bmp ..\..\..\..\..\tmp\Road_EU\Roundabout\Street\W13\Last
-CD..\..\..\W13
-Copy *-d0.bmp ..\..\..\tmp\Road_EU\Roundabout\W13
-CD..\zLast
-Copy *-d0.bmp ..\..\..\tmp\Road_EU\Roundabout\zLast
-
+CD..\..\w16
+Copy *-d0.bmp ..\..\..\tmp\Road_EU\Roundabout\w16
 
 CD..\..\..\Road_US
 Copy *-d0.bmp ..\tmp\Road_US
@@ -278,61 +537,64 @@ CD..\Roundabout\Edit
 Copy *-d0.bmp ..\..\..\tmp\Road_US\Roundabout\Edit
 CD Puzzle
 Copy *-d0.bmp ..\..\..\..\tmp\Road_US\Roundabout\Edit\Puzzle
-CD..\"Puzzle No Mips"
-Copy *-d0.bmp ..\..\..\..\tmp\Road_US\Roundabout\Edit\"Puzzle No Mips"
-CD..\..\Street
+CD NoMips
+Copy *-d0.bmp ..\..\..\..\..\tmp\Road_US\Roundabout\Edit\Puzzle\NoMips
+CD..\..\..\Street
 Copy *-d0.bmp ..\..\..\tmp\Road_US\Roundabout\Street
 CD Puzzle
 Copy *-d0.bmp ..\..\..\..\tmp\Road_US\Roundabout\Street\Puzzle
-CD..\..\W13
-Copy *-d0.bmp ..\..\..\tmp\Road_US\Roundabout\W13
-CD..\zLast
-Copy *-d0.bmp ..\..\..\tmp\Road_US\Roundabout\zLast
+CD..\..\w16
+Copy *-d0.bmp ..\..\..\tmp\Road_US\Roundabout\w16
 
-CD..\..\..\SAM\"SAM 1"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 1"
-CD..\"SAM 2"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 2"
+CD..\..\..\SAM\"SAM-1"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-1"
+CD..\"SAM-2"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-2"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 2"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-2"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 2"\US
-CD..\..\"SAM 3"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 3"
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-2"\US
+CD..\..\"SAM-3"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-3"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 3"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-3"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 3"\US
-CD..\..\"SAM 4"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 4"
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-3"\US
+CD..\..\"SAM-4"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-4"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 4"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-4"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 4"\US
-CD..\..\"SAM 5"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 5"
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-4"\US
+CD..\..\"SAM-5"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-5"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 5"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-5"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 5"\US
-CD..\..\"SAM 7"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 7"
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-5"\US
+CD..\..\"SAM-7"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-7"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 7"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-7"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 7"\US
-CD..\..\"SAM 8"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 8"
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-7"\US
+CD..\..\"SAM-8"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-8"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 8"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-8"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 8"\US
-CD..\..\"SAM 9"
-Copy *-d0.bmp ..\..\tmp\SAM\"SAM 9"
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-8"\US
+CD..\..\"SAM-9"
+Copy *-d0.bmp ..\..\tmp\SAM\"SAM-9"
 CD EU
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 9"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-9"\EU
 CD..\US
-Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM 9"\US
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-9"\US
+CD..\..\"SAM-6&10"\EU
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-6&10"\EU
+CD..\US
+Copy *-d0.bmp ..\..\..\tmp\SAM\"SAM-6&10"\US
+
 
 CD..\..\..\"Street - Maxis"
 Copy *-d0.bmp ..\tmp\"Street - Maxis"
@@ -354,7 +616,6 @@ REM Copy Alt D0s
 REM Copies the currently unused D0s and overwrites the in-use set
 REM --------------------------------------------------------------------
 
-
 CD..\..\..\"_Alt"\Ave
 Copy *.* ..\..\Ave /y
 CD EU
@@ -372,6 +633,7 @@ Copy *.* ..\..\..\Ave\US /y
 CD..\WRC
 Copy *.* ..\..\..\Ave\WRC /y
 
+
 CD..\..\OWR
 Copy *.* ..\..\OWR /y
 CD EU
@@ -381,66 +643,255 @@ Copy *.* ..\..\..\OWR\US /y
 CD..\WRC
 Copy *.* ..\..\..\OWR\WRC /y
 
-CD..\..\Rail\Maxis
-Copy *.* ..\..\..\Rail\Maxis /y
-CD EU
-Copy *.* ..\..\..\..\Rail\Maxis\EU /y
-CD LHD
-Copy *.* ..\..\..\..\..\Rail\Maxis\EU\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\Rail\Maxis\EU\RHD /y
-CD..\..\SAM
-Copy *.* ..\..\..\..\Rail\Maxis\SAM /y
-CD..\Street
-Copy *.* ..\..\..\..\Rail\Maxis\Street /y
-CD..\US
-Copy *.* ..\..\..\..\Rail\Maxis\US /y
-CD LHD
-Copy *.* ..\..\..\..\..\Rail\Maxis\US\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\Rail\Maxis\US\RHD /y
 
-CD..\..\..\PEG
-Copy *.* ..\..\..\Rail\PEG /y
-CD EU
-Copy *.* ..\..\..\..\Rail\PEG\EU /y
-CD LHD
-Copy *.* ..\..\..\..\..\Rail\PEG\EU\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\Rail\PEG\EU\RHD /y
-CD..\..\SAM
-Copy *.* ..\..\..\..\Rail\PEG\SAM /y
-CD..\Street
-Copy *.* ..\..\..\..\Rail\PEG\Street /y
-CD..\US
-Copy *.* ..\..\..\..\Rail\PEG\US /y
-CD LHD
-Copy *.* ..\..\..\..\..\Rail\PEG\US\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\Rail\PEG\US\RHD /y
+CD..\..\Rail\GLR
+Copy *.* ..\..\..\Rail\GLR /y
+CD US
+Copy *.* ..\..\..\..\Rail\GLR\US /y
 
-CD..\..\..\RRW
-Copy *.* ..\..\..\Rail\RRW /y
-CD EU
-Copy *.* ..\..\..\..\Rail\RRW\EU /y
+
+CD..\..\Maxis\"03 - Road EU"
+Copy *.* ..\..\..\..\Rail\Maxis\"03 - Road EU" /y
+CD FAR
+Copy *.* ..\..\..\..\..\Rail\Maxis\"03 - Road EU"\FAR /y
 CD Puzzle
-Copy *.* ..\..\..\..\..\Rail\RRW\EU\Puzzle /y
-CD..\LHD
-Copy *.* ..\..\..\..\..\Rail\RRW\EU\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\Rail\RRW\EU\RHD /y
-CD..\..\SAM
-Copy *.* ..\..\..\..\Rail\RRW\SAM /y
-CD..\Street
-Copy *.* ..\..\..\..\Rail\RRW\Street /y
-CD..\US
-Copy *.* ..\..\..\..\Rail\RRW\US /y
-CD LHD
-Copy *.* ..\..\..\..\..\Rail\RRW\US\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\Rail\RRW\US\RHD /y
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"03 - Road EU"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\Rail\Maxis\"03 - Road EU"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"03 - Road EU"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\Rail\Maxis\"03 - Road EU"\LHD\FAR\Puzzle /y
 
-CD..\..\..\..\Road_EU
+CD..\..\..\..\"03 - Road US"
+Copy *.* ..\..\..\..\Rail\Maxis\"03 - Road US" /y
+CD FAR
+Copy *.* ..\..\..\..\..\Rail\Maxis\"03 - Road US"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"03 - Road US"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\Rail\Maxis\"03 - Road US"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"03 - Road US"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\Rail\Maxis\"03 - Road US"\LHD\FAR\Puzzle /y
+
+CD ..\..\..\..\"04 - Ave"
+Copy *.* ..\..\..\..\Rail\Maxis\"04 - Ave" /y
+CD LHD
+Copy *.* ..\..\..\..\..\Rail\Maxis\"04 - Ave"\LHD /y
+
+CD ..\..\"05 - Street"
+Copy *.* ..\..\..\..\Rail\Maxis\"05 - Street" /y
+CD LHD
+Copy *.* ..\..\..\..\..\Rail\Maxis\"05 - Street"\LHD /y
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-2 /y
+CD..\SAM-3
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-3 /y
+CD..\SAM-4
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-4 /y
+CD..\SAM-5
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-5 /y
+CD..\SAM-6
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-6 /y
+CD..\SAM-7
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-7 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-7\LHD /y
+CD..\..\SAM-8
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-8 /y
+CD..\SAM-9
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-9 /y
+CD..\SAM-10
+Copy *.* ..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-10 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"5E - SAM"\SAM-10\LHD /y
+
+CD..\..\..\"09 - OWR"
+Copy *.* ..\..\..\..\Rail\Maxis\"09 - OWR" /y
+
+CD..\"51 - NWM EU"
+Copy *.* ..\..\..\..\Rail\Maxis\"51 - NWM EU" /y
+CD W16F
+Copy *.* ..\..\..\..\..\Rail\Maxis\"51 - NWM EU"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\Rail\Maxis\"51 - NWM EU"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"51 - NWM EU"\LHD\W16F /y
+
+CD..\..\..\"51 - NWM US"
+Copy *.* ..\..\..\..\Rail\Maxis\"51 - NWM US" /y
+CD W16F
+Copy *.* ..\..\..\..\..\Rail\Maxis\"51 - NWM US"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\Rail\Maxis\"51 - NWM US"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\Rail\Maxis\"51 - NWM US"\LHD\W16F /y
+
+CD..\..\..\..\PEG\"03 - Road EU"
+Copy *.* ..\..\..\..\Rail\PEG\"03 - Road EU" /y
+CD FAR
+Copy *.* ..\..\..\..\..\Rail\PEG\"03 - Road EU"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"03 - Road EU"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\Rail\PEG\"03 - Road EU"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"03 - Road EU"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\Rail\PEG\"03 - Road EU"\LHD\FAR\Puzzle /y
+
+CD..\..\..\..\"03 - Road US"
+Copy *.* ..\..\..\..\Rail\PEG\"03 - Road US" /y
+CD FAR
+Copy *.* ..\..\..\..\..\Rail\PEG\"03 - Road US"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"03 - Road US"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\Rail\PEG\"03 - Road US"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"03 - Road US"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\Rail\PEG\"03 - Road US"\LHD\FAR\Puzzle /y
+
+CD ..\..\..\..\"04 - Ave"
+Copy *.* ..\..\..\..\Rail\PEG\"04 - Ave" /y
+CD LHD
+Copy *.* ..\..\..\..\..\Rail\PEG\"04 - Ave"\LHD /y
+
+CD ..\..\"05 - Street"
+Copy *.* ..\..\..\..\Rail\PEG\"05 - Street" /y
+CD LHD
+Copy *.* ..\..\..\..\..\Rail\PEG\"05 - Street"\LHD /y
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-2 /y
+CD..\SAM-3
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-3 /y
+CD..\SAM-4
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-4 /y
+CD..\SAM-5
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-5 /y
+CD..\SAM-6
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-6 /y
+CD..\SAM-7
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-7 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-7\LHD /y
+CD..\..\SAM-8
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-8 /y
+CD..\SAM-9
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-9 /y
+CD..\SAM-10
+Copy *.* ..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-10 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"5E - SAM"\SAM-10\LHD /y
+
+CD..\..\..\"09 - OWR"
+Copy *.* ..\..\..\..\Rail\PEG\"09 - OWR" /y
+
+CD..\"51 - NWM EU"
+Copy *.* ..\..\..\..\Rail\PEG\"51 - NWM EU" /y
+CD W16F
+Copy *.* ..\..\..\..\..\Rail\PEG\"51 - NWM EU"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\Rail\PEG\"51 - NWM EU"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"51 - NWM EU"\LHD\W16F /y
+
+CD..\..\..\"51 - NWM US"
+Copy *.* ..\..\..\..\Rail\PEG\"51 - NWM US" /y
+CD W16F
+Copy *.* ..\..\..\..\..\Rail\PEG\"51 - NWM US"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\Rail\PEG\"51 - NWM US"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\Rail\PEG\"51 - NWM US"\LHD\W16F /y
+
+CD..\..\..\..\RRW\"03 - Road EU"
+Copy *.* ..\..\..\..\Rail\RRW\"03 - Road EU" /y
+CD FAR
+Copy *.* ..\..\..\..\..\Rail\RRW\"03 - Road EU"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"03 - Road EU"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\Rail\RRW\"03 - Road EU"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"03 - Road EU"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\Rail\RRW\"03 - Road EU"\LHD\FAR\Puzzle /y
+
+CD..\..\..\..\"03 - Road US"
+Copy *.* ..\..\..\..\Rail\RRW\"03 - Road US" /y
+CD FAR
+Copy *.* ..\..\..\..\..\Rail\RRW\"03 - Road US"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"03 - Road US"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\Rail\RRW\"03 - Road US"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"03 - Road US"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\Rail\RRW\"03 - Road US"\LHD\FAR\Puzzle /y
+
+CD ..\..\..\..\"04 - Ave"
+Copy *.* ..\..\..\..\Rail\RRW\"04 - Ave" /y
+CD LHD
+Copy *.* ..\..\..\..\..\Rail\RRW\"04 - Ave"\LHD /y
+
+CD ..\..\"05 - Street"
+Copy *.* ..\..\..\..\Rail\RRW\"05 - Street" /y
+CD LHD
+Copy *.* ..\..\..\..\..\Rail\RRW\"05 - Street"\LHD /y
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-2 /y
+CD..\SAM-3
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-3 /y
+CD..\SAM-4
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-4 /y
+CD..\SAM-5
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-5 /y
+CD..\SAM-6
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-6 /y
+CD..\SAM-7
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-7 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-7\LHD /y
+CD..\..\SAM-8
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-8 /y
+CD..\SAM-9
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-9 /y
+CD..\SAM-10
+Copy *.* ..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-10 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"5E - SAM"\SAM-10\LHD /y
+
+CD..\..\..\"09 - OWR"
+Copy *.* ..\..\..\..\Rail\RRW\"09 - OWR" /y
+
+CD..\"51 - NWM EU"
+Copy *.* ..\..\..\..\Rail\RRW\"51 - NWM EU" /y
+CD W16F
+Copy *.* ..\..\..\..\..\Rail\RRW\"51 - NWM EU"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\Rail\RRW\"51 - NWM EU"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"51 - NWM EU"\LHD\W16F /y
+
+CD..\..\..\"51 - NWM US"
+Copy *.* ..\..\..\..\Rail\RRW\"51 - NWM US" /y
+CD W16F
+Copy *.* ..\..\..\..\..\Rail\RRW\"51 - NWM US"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\Rail\RRW\"51 - NWM US"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\Rail\RRW\"51 - NWM US"\LHD\W16F /y
+
+
+CD..\..\..\..\..\Road_EU
 Copy *.* ..\..\Road_EU /y
 CD w16
 Copy *.* ..\..\..\Road_EU\w16 /y
@@ -452,20 +903,15 @@ CD..\Roundabout\Edit
 Copy *.* ..\..\..\..\Road_EU\Roundabout\Edit /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\Road_EU\Roundabout\Edit\Puzzle /y
-CD..\"Puzzle No Mips"
-Copy *.* ..\..\..\..\..\Road_EU\Roundabout\Edit\"Puzzle No Mips" /y
-CD..\..\Street
+CD NoMips
+Copy *.* ..\..\..\..\..\..\Road_EU\Roundabout\Edit\Puzzle\NoMips /y
+CD..\..\..\Street
 Copy *.* ..\..\..\..\Road_EU\Roundabout\Street /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\Road_EU\Roundabout\Street\Puzzle /y
-CD..\W13
-Copy *.* ..\..\..\..\..\Road_EU\Roundabout\Street\W13 /y
-CD Last
-Copy *.* ..\..\..\..\..\..\Road_EU\Roundabout\Street\W13\Last /y
-CD..\..\..\W13
-Copy *.* ..\..\..\..\Road_EU\Roundabout\W13 /y
-CD..\zLast
-Copy *.* ..\..\..\..\Road_EU\Roundabout\zLast /y
+CD..\..\w16
+Copy *.* ..\..\..\..\Road_EU\Roundabout\w16 /y
+
 
 CD..\..\..\Road_US
 Copy *.* ..\..\Road_US /y
@@ -479,61 +925,65 @@ CD..\Roundabout\Edit
 Copy *.* ..\..\..\..\Road_US\Roundabout\Edit /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\Road_US\Roundabout\Edit\Puzzle /y
-CD..\"Puzzle No Mips"
-Copy *.* ..\..\..\..\..\Road_US\Roundabout\Edit\"Puzzle No Mips" /y
-CD..\..\Street
+CD NoMips
+Copy *.* ..\..\..\..\..\..\Road_US\Roundabout\Edit\Puzzle\NoMips /y
+CD..\..\..\Street
 Copy *.* ..\..\..\..\Road_US\Roundabout\Street /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\Road_US\Roundabout\Street\Puzzle /y
-CD..\..\W13
-Copy *.* ..\..\..\..\Road_US\Roundabout\W13 /y
-CD..\zLast
-Copy *.* ..\..\..\..\Road_US\Roundabout\zLast /y
+CD..\..\w16
+Copy *.* ..\..\..\..\Road_US\Roundabout\w16 /y
 
-CD..\..\..\SAM\"SAM 1"
-Copy *.* ..\..\..\SAM\"SAM 1" /y
-CD..\"SAM 2"
-Copy *.* ..\..\..\SAM\"SAM 2" /y
+
+CD..\..\..\SAM\"SAM-1"
+Copy *.* ..\..\..\SAM\"SAM-1" /y
+CD..\"SAM-2"
+Copy *.* ..\..\..\SAM\"SAM-2" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 2"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-2"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 2"\US /y
-CD..\..\"SAM 3"
-Copy *.* ..\..\..\SAM\"SAM 3" /y
+Copy *.* ..\..\..\..\SAM\"SAM-2"\US /y
+CD..\..\"SAM-3"
+Copy *.* ..\..\..\SAM\"SAM-3" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 3"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-3"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 3"\US /y
-CD..\..\"SAM 4"
-Copy *.* ..\..\..\SAM\"SAM 4" /y
+Copy *.* ..\..\..\..\SAM\"SAM-3"\US /y
+CD..\..\"SAM-4"
+Copy *.* ..\..\..\SAM\"SAM-4" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 4"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-4"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 4"\US /y
-CD..\..\"SAM 5"
-Copy *.* ..\..\..\SAM\"SAM 5" /y
+Copy *.* ..\..\..\..\SAM\"SAM-4"\US /y
+CD..\..\"SAM-5"
+Copy *.* ..\..\..\SAM\"SAM-5" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 5"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-5"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 5"\US /y
-CD..\..\"SAM 7"
-Copy *.* ..\..\..\SAM\"SAM 7" /y
+Copy *.* ..\..\..\..\SAM\"SAM-5"\US /y
+CD..\..\"SAM-7"
+Copy *.* ..\..\..\SAM\"SAM-7" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 7"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-7"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 7"\US /y
-CD..\..\"SAM 8"
-Copy *.* ..\..\..\SAM\"SAM 8" /y
+Copy *.* ..\..\..\..\SAM\"SAM-7"\US /y
+CD..\..\"SAM-8"
+Copy *.* ..\..\..\SAM\"SAM-8" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 8"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-8"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 8"\US /y
-CD..\..\"SAM 9"
-Copy *.* ..\..\..\SAM\"SAM 9" /y
+Copy *.* ..\..\..\..\SAM\"SAM-8"\US /y
+CD..\..\"SAM-9"
+Copy *.* ..\..\..\SAM\"SAM-9" /y
 CD EU
-Copy *.* ..\..\..\..\SAM\"SAM 9"\EU /y
+Copy *.* ..\..\..\..\SAM\"SAM-9"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\SAM\"SAM 9"\US /y
+Copy *.* ..\..\..\..\SAM\"SAM-9"\US /y
+CD..\..\"SAM-6&10"\EU
+Copy *.* ..\..\..\..\SAM\"SAM-6&10"\EU /y
+CD..\US
+Copy *.* ..\..\..\..\SAM\"SAM-6&10"\US /y
+
 
 CD..\..\..\"Street - Maxis"
 Copy *.* ..\..\"Street - Maxis" /y
@@ -541,6 +991,7 @@ CD EU
 Copy *.* ..\..\..\"Street - Maxis"\EU /y
 CD..\US
 Copy *.* ..\..\..\"Street - Maxis"\US /y
+
 
 CD..\..\zPatches\AveZebras
 Copy *.* ..\..\..\zPatches\AveZebras /y
@@ -583,67 +1034,256 @@ CD..\WRC
 Copy *.* ..\..\..\"_Alt"\OWR\WRC /y
 
 
-CD..\..\Rail\Maxis
-Copy *.* ..\..\..\"_Alt"\Rail\Maxis /y
-CD EU
-Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\EU /y
-CD LHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\EU\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\EU\RHD /y
-CD..\..\SAM
-Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\SAM /y
-CD..\Street
-Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\Street /y
-CD..\US
-Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\US /y
-CD LHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\US\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\US\RHD /y
+CD..\..\Rail\GLR
+Copy *.* ..\..\..\"_Alt"\Rail\GLR /y
+CD US
+Copy *.* ..\..\..\..\"_Alt"\Rail\GLR\US /y
 
-CD..\..\..\PEG
-Copy *.* ..\..\..\"_Alt"\Rail\PEG /y
-CD EU
-Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\EU /y
-CD LHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\EU\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\EU\RHD /y
-CD..\..\SAM
-Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\SAM /y
-CD..\Street
-Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\Street /y
-CD..\US
-Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\US /y
-CD LHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\US\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\US\RHD /y
 
-CD..\..\..\RRW
-Copy *.* ..\..\..\"_Alt"\Rail\RRW /y
-CD EU
-Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\EU /y
+CD..\..\Maxis\"03 - Road EU"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road EU" /y
+CD FAR
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road EU"\FAR /y
 CD Puzzle
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\EU\Puzzle /y
-CD..\LHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\EU\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\EU\RHD /y
-CD..\..\SAM
-Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\SAM /y
-CD..\Street
-Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\Street /y
-CD..\US
-Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\US /y
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road EU"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road EU"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road EU"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road EU"\LHD\FAR\Puzzle /y
+
+CD..\..\..\..\"03 - Road US"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road US" /y
+CD FAR
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road US"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road US"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road US"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road US"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\"_Alt"\Rail\Maxis\"03 - Road US"\LHD\FAR\Puzzle /y
+
+CD ..\..\..\..\"04 - Ave"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"04 - Ave" /y
 CD LHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\US\LHD /y
-CD..\RHD
-Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\US\RHD /y
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"04 - Ave"\LHD /y
+
+CD ..\..\"05 - Street"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"05 - Street" /y
+CD LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"05 - Street"\LHD /y
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-2 /y
+CD..\SAM-3
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-3 /y
+CD..\SAM-4
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-4 /y
+CD..\SAM-5
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-5 /y
+CD..\SAM-6
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-6 /y
+CD..\SAM-7
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-7 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-7\LHD /y
+CD..\..\SAM-8
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-8 /y
+CD..\SAM-9
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-9 /y
+CD..\SAM-10
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-10 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"5E - SAM"\SAM-10\LHD /y
+
+CD..\..\..\"09 - OWR"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"09 - OWR" /y
+
+CD..\"51 - NWM EU"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM EU" /y
+CD W16F
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM EU"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM EU"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM EU"\LHD\W16F /y
+
+CD..\..\..\"51 - NWM US"
+Copy *.* ..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM US" /y
+CD W16F
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM US"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM US"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\Maxis\"51 - NWM US"\LHD\W16F /y
 
 
-CD..\..\..\..\Road_EU
+CD..\..\..\..\PEG\"03 - Road EU"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"03 - Road EU" /y
+CD FAR
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road EU"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road EU"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road EU"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road EU"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road EU"\LHD\FAR\Puzzle /y
+
+CD..\..\..\..\"03 - Road US"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"03 - Road US" /y
+CD FAR
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road US"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road US"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road US"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road US"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\"_Alt"\Rail\PEG\"03 - Road US"\LHD\FAR\Puzzle /y
+
+CD ..\..\..\..\"04 - Ave"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"04 - Ave" /y
+CD LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"04 - Ave"\LHD /y
+
+CD ..\..\"05 - Street"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"05 - Street" /y
+CD LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"05 - Street"\LHD /y
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-2 /y
+CD..\SAM-3
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-3 /y
+CD..\SAM-4
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-4 /y
+CD..\SAM-5
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-5 /y
+CD..\SAM-6
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-6 /y
+CD..\SAM-7
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-7 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-7\LHD /y
+CD..\..\SAM-8
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-8 /y
+CD..\SAM-9
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-9 /y
+CD..\SAM-10
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-10 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"5E - SAM"\SAM-10\LHD /y
+
+CD..\..\..\"09 - OWR"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"09 - OWR" /y
+
+CD..\"51 - NWM EU"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM EU" /y
+CD W16F
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM EU"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM EU"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM EU"\LHD\W16F /y
+
+CD..\..\..\"51 - NWM US"
+Copy *.* ..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM US" /y
+CD W16F
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM US"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM US"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\PEG\"51 - NWM US"\LHD\W16F /y
+
+
+CD..\..\..\..\RRW\"03 - Road EU"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"03 - Road EU" /y
+CD FAR
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road EU"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road EU"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road EU"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road EU"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road EU"\LHD\FAR\Puzzle /y
+
+CD..\..\..\..\"03 - Road US"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"03 - Road US" /y
+CD FAR
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road US"\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road US"\FAR\Puzzle /y
+CD ..\..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road US"\LHD /y
+CD FAR
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road US"\LHD\FAR /y
+CD Puzzle
+Copy *.* ..\..\..\..\..\..\..\"_Alt"\Rail\RRW\"03 - Road US"\LHD\FAR\Puzzle /y
+
+CD ..\..\..\..\"04 - Ave"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"04 - Ave" /y
+CD LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"04 - Ave"\LHD /y
+
+CD ..\..\"05 - Street"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"05 - Street" /y
+CD LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"05 - Street"\LHD /y
+
+CD..\..\"5E - SAM"\SAM-2
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-2 /y
+CD..\SAM-3
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-3 /y
+CD..\SAM-4
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-4 /y
+CD..\SAM-5
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-5 /y
+CD..\SAM-6
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-6 /y
+CD..\SAM-7
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-7 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-7\LHD /y
+CD..\..\SAM-8
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-8 /y
+CD..\SAM-9
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-9 /y
+CD..\SAM-10
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-10 /y
+CD LHD
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"5E - SAM"\SAM-10\LHD /y
+
+CD..\..\..\"09 - OWR"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"09 - OWR" /y
+
+CD..\"51 - NWM EU"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM EU" /y
+CD W16F
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM EU"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM EU"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM EU"\LHD\W16F /y
+
+CD..\..\..\"51 - NWM US"
+Copy *.* ..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM US" /y
+CD W16F
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM US"\W16F /y
+CD..\LHD
+Copy *.* ..\..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM US"\LHD /y
+CD W16F
+Copy *.* ..\..\..\..\..\..\"_Alt"\Rail\RRW\"51 - NWM US"\LHD\W16F /y
+
+
+CD..\..\..\..\..\Road_EU
 Copy *.* ..\..\"_Alt"\Road_EU /y
 CD w16
 Copy *.* ..\..\..\"_Alt"\Road_EU\w16 /y
@@ -655,20 +1295,15 @@ CD..\Roundabout\Edit
 Copy *.* ..\..\..\..\"_Alt"\Road_EU\Roundabout\Edit /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\"_Alt"\Road_EU\Roundabout\Edit\Puzzle /y
-CD..\"Puzzle No Mips"
-Copy *.* ..\..\..\..\..\"_Alt"\Road_EU\Roundabout\Edit\"Puzzle No Mips" /y
-CD..\..\Street
+CD NoMips
+Copy *.* ..\..\..\..\..\..\"_Alt"\Road_EU\Roundabout\Edit\Puzzle\NoMips /y
+CD..\..\..\Street
 Copy *.* ..\..\..\..\"_Alt"\Road_EU\Roundabout\Street /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\"_Alt"\Road_EU\Roundabout\Street\Puzzle /y
-CD..\W13
-Copy *.* ..\..\..\..\..\"_Alt"\Road_EU\Roundabout\Street\W13 /y
-CD Last
-Copy *.* ..\..\..\..\..\..\"_Alt"\Road_EU\Roundabout\Street\W13\Last /y
-CD..\..\..\W13
-Copy *.* ..\..\..\..\"_Alt"\Road_EU\Roundabout\W13 /y
-CD..\zLast
-Copy *.* ..\..\..\..\"_Alt"\Road_EU\Roundabout\zLast /y
+CD..\..\w16
+Copy *.* ..\..\..\..\"_Alt"\Road_EU\Roundabout\w16 /y
+
 
 CD..\..\..\Road_US
 Copy *.* ..\..\"_Alt"\Road_US /y
@@ -682,61 +1317,65 @@ CD..\Roundabout\Edit
 Copy *.* ..\..\..\..\"_Alt"\Road_US\Roundabout\Edit /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\"_Alt"\Road_US\Roundabout\Edit\Puzzle /y
-CD..\"Puzzle No Mips"
-Copy *.* ..\..\..\..\..\"_Alt"\Road_US\Roundabout\Edit\"Puzzle No Mips" /y
-CD..\..\Street
+CD NoMips
+Copy *.* ..\..\..\..\..\..\"_Alt"\Road_US\Roundabout\Edit\Puzzle\NoMips /y
+CD..\..\..\Street
 Copy *.* ..\..\..\..\"_Alt"\Road_US\Roundabout\Street /y
 CD Puzzle
 Copy *.* ..\..\..\..\..\"_Alt"\Road_US\Roundabout\Street\Puzzle /y
-CD..\..\W13
-Copy *.* ..\..\..\..\"_Alt"\Road_US\Roundabout\W13 /y
-CD..\zLast
-Copy *.* ..\..\..\..\"_Alt"\Road_US\Roundabout\zLast /y
+CD..\..\w16
+Copy *.* ..\..\..\..\"_Alt"\Road_US\Roundabout\w16 /y
 
-CD..\..\..\SAM\"SAM 1"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 1" /y
-CD..\"SAM 2"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 2" /y
+
+CD..\..\..\SAM\"SAM-1"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-1" /y
+CD..\"SAM-2"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-2" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 2"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-2"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 2"\US /y
-CD..\..\"SAM 3"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 3" /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-2"\US /y
+CD..\..\"SAM-3"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-3" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 3"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-3"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 3"\US /y
-CD..\..\"SAM 4"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 4" /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-3"\US /y
+CD..\..\"SAM-4"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-4" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 4"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-4"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 4"\US /y
-CD..\..\"SAM 5"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 5" /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-4"\US /y
+CD..\..\"SAM-5"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-5" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 5"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-5"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 5"\US /y
-CD..\..\"SAM 7"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 7" /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-5"\US /y
+CD..\..\"SAM-7"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-7" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 7"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-7"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 7"\US /y
-CD..\..\"SAM 8"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 8" /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-7"\US /y
+CD..\..\"SAM-8"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-8" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 8"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-8"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 8"\US /y
-CD..\..\"SAM 9"
-Copy *.* ..\..\..\"_Alt"\SAM\"SAM 9" /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-8"\US /y
+CD..\..\"SAM-9"
+Copy *.* ..\..\..\"_Alt"\SAM\"SAM-9" /y
 CD EU
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 9"\EU /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-9"\EU /y
 CD..\US
-Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM 9"\US /y
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-9"\US /y
+CD..\..\"SAM-6&10"\EU
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-6&10"\EU /y
+CD..\US
+Copy *.* ..\..\..\..\"_Alt"\SAM\"SAM-6&10"\US /y
+
 
 CD..\..\..\"Street - Maxis"
 Copy *.* ..\..\"_Alt"\"Street - Maxis" /y
@@ -745,13 +1384,14 @@ Copy *.* ..\..\..\"_Alt"\"Street - Maxis"\EU /y
 CD..\US
 Copy *.* ..\..\..\"_Alt"\"Street - Maxis"\US /y
 
+
 CD..\..\zPatches\AveZebras
 Copy *.* ..\..\..\"_Alt"\zPatches\AveZebras /y
 CD..\CullDeSac\EU
 Copy *.* ..\..\..\..\"_Alt"\zPatches\CullDeSac\EU /y
-CD ..\Street
+CD..\Street
 Copy *.* ..\..\..\..\"_Alt"\zPatches\CullDeSac\Street /y
-CD ..\US
+CD..\US
 Copy *.* ..\..\..\..\"_Alt"\zPatches\CullDeSac\US /y
 
 REM reset to main Dir and remove tmp directory
